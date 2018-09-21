@@ -1,11 +1,13 @@
-const Board = function () {
+const PubSub = require('../helpers/pub_sub.js');
 
+const Board = function () {
 };
 
 Board.prototype.movesPlayer = function (player, dieAmount) {
   for (i = 0; i < dieAmount; i++) {
    player.position += 1;
-   if (player.position === 25) {
+   PubSub.publish('Board:move-player', 1);
+   if (player.position === 24) {
      player.position = 0;
    };
  };

@@ -17,14 +17,14 @@ const Card = function () {
   this.booksQuestions = [];
 }
 
-Card.prototype.getData = function () {}
-  Request.get(`https://opentdb.com/api.php?amount=25&category=${this.film}&type=multiple`)
-  .then( (categoryArray) => {
-    categoryArray.results.forEach( (categoryQuestion, index) => {
-      const question
-    })
-  })
-};
+// Card.prototype.getData = function () {}
+//   Request.get(`https://opentdb.com/api.php?amount=25&category=${this.film}&type=multiple`)
+//   .then( (categoryArray) => {
+//     categoryArray.results.forEach( (categoryQuestion, index) => {
+//       const question
+//     })
+//   })
+// };
 
 
 
