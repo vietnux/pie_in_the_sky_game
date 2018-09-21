@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "mocha",
+    "test": "mocha client/src/models/specs",
     "build": "webpack -w"
   },
   "repository": {
