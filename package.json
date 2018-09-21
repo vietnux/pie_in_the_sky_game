@@ -1,0 +1,29 @@
+{
+  "name": "pie_in_the_sky",
+  "version": "1.0.0",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "mocha",
+    "build": "webpack -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/self-unit/pie_in_the_sky.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/self-unit/pie_in_the_sky/issues"
+  },
+  "homepage": "https://github.com/self-unit/pie_in_the_sky#readme",
+  "dependencies": {
+    "npm": "^6.4.1"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.0"
+  },
+  "keywords": [],
+  "description": ""
+}
