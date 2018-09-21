@@ -16,10 +16,10 @@ beforeEach(function () {
   })
 
   it("can move player past 0 ", function () {
-    player.position = 23;
+    player.position = 21;
     board.movesPlayer(player, 5)
     const actual = player.position
-    assert.strictEqual(actual, 2)
+    assert.strictEqual(actual, 1)
   })
 
 });
