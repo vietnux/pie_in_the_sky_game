@@ -6,22 +6,34 @@ const Card = function() {
   this.baseUrl = 'https://opentdb.com/api.php?amount=25&category=';
 
   this.categories = [{
-    "movies": 11,
+    "name": "Movies",
+    "categoryId": 11,
+    "currentCard": 0,
     "cards": []
   }, {
-    "science": 17,
+    "name": "Science",
+    "categoryId": 17,
+    "currentCard": 0,
     "cards": []
   }, {
-    "sport": 21,
+    "name": "Sports",
+    "categoryId": 21,
+    "currentCard": 0,
     "cards": []
   }, {
-    "history": 23,
+    "name": "History",
+    "categoryId": 23,
+    "currentCard": 0,
     "cards": []
   }, {
-    "music": 12,
+    "name": "Music",
+    "categoryId": 12,
+    "currentCard": 0,
     "cards": []
   }, {
-    "books": 10,
+    "name": "Books",
+    "categoryId": 10,
+    "currentCard": 0,
     "cards": []
   }];
 
@@ -29,7 +41,7 @@ const Card = function() {
 
 Card.prototype.getData = function() {
   this.categories.forEach( (category) => {
-    const quizUrl = `${this.baseUrl}${category[Object.keys(category)[0]]}&type=multiple`;
+    const quizUrl = `${this.baseUrl}${category.categoryId}&type=multiple`;
     const questions = category.cards;
     const request = new Request(quizUrl);
     request.get()
