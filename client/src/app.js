@@ -6,19 +6,32 @@ const BoardView = require('./views/board_view.js');
 
 document.addEventListener('DOMContentLoaded', () => {
 
-const card = new Card('')
-card.getData();
+const startGameForm = document.querySelector("#start-screen-form");
+const startScreenDiv = document.querySelector('#start-screen');
+startGameForm.addEventListener('submit', (evt) => {
+  evt.preventDefault();
+  const player1 = new Player(evt.target.player1.value);
+  const player2 = new Player(evt.target.player2.value);
+  const newGame = new Game(player1, player2);
+  startScreenDiv.style.display = "none";
 
-// const container = document.querySelector('#card-details');
-// const quizView = new QuizView(container, form);
-// quizView.bindEvents();
+  const card = new Card('')
+  card.getData();
 
-const player1 = new Player("player1");
+  // const container = document.querySelector('#card-details');
+  // const quizView = new QuizView(container, form);
+  // quizView.bindEvents();
 
-const boardView = new BoardView();
-boardView.bindEvents();
+  // const player1 = new Player("player1");
 
-const board = new Board();
-board.movesPlayer(player1,3);
+  const boardView = new BoardView();
+  boardView.bindEvents();
+
+  const board = new Board();
+  board.movesPlayer(player1,3);
+
+
+});
+
 
 });
