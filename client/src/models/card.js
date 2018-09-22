@@ -4,6 +4,7 @@ const randomizeArray = require('../helpers/randomize_array.js');
 
 const Card = function() {
   this.baseUrl = 'https://opentdb.com/api.php?amount=25&category=';
+  this.currentQuestion = null;
 
   this.categories = [{
     "name": "Movies",
@@ -45,8 +46,8 @@ Card.prototype.bindEvents = function() {
   });
 
   PubSub.subscribe('QuestionView:answer-selected', (event) => {
-    const selectedAnswer = event.detail;
-    this.answerSelected(selectedAnswer);
+    const selectedIndex = event.detail;
+    this.answerSelected(selectedIndex);
   });
 };
 
@@ -84,16 +85,17 @@ Card.prototype.showQuestion = function (categoryIndex) {
     return;
   }
 
+  this.currentQuestion = question;
   PubSub.publish('Card:question-data', {
     question: question.question,
     answers: question.allAnswers
   });
 };
 
-Card.prototype.answerSelected = function (selectedAnswer) {
-  // TODO: Check the current question to see if selected answer is correct
-  // TODO: Publish whether question is correct or not
-  PubSub.publish('Card:is-correct', true);
+Card.prototype.answerSelected = function (selectedIndex) {
+  const correctAnswer = this.currentQuestion.correctAnswer;
+  const selectedAnswer = this.currentQuestion.allAnswers[selectedIndex];
+  PubSub.publish('Card:is-correct', selectedAnswer === correctAnswer);
 };
 
 module.exports = Card;
