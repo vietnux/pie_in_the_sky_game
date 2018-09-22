@@ -6,9 +6,12 @@ const BoardView = require('./views/board_view.js');
 
 document.addEventListener('DOMContentLoaded', () => {
 
-// const cards = new Card('')
-// cards.getData();
-// cards.bindEvents();
+const card = new Card('')
+card.getData();
+
+// const container = document.querySelector('#card-details');
+// const quizView = new QuizView(container, form);
+// quizView.bindEvents();
 
 const player1 = new Player("player1");
 
