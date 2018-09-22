@@ -45,13 +45,14 @@ Card.prototype.getData = function() {
     const questions = category.cards;
     const request = new Request(quizUrl);
     request.get()
-    .then((cards) => {
-      cards.results.forEach((cardQuestion, index) => {
-        const question = new QuestionModel(index, cardQuestion);
-        question.bindEvents();
-        questions.push(question);
-      });
-      // PubSub.publish('QuizModel:quiz-loaded', questions.length);
+      .then((cards) => {
+        cards.results.forEach((cardQuestion) => {
+          questions.push({
+            question: cardQuestion.question,
+            correctAnswer: cardQuestion.correct_answer,
+            incorrectAnswers: cardQuestion.incorrect_answers
+          });
+        });
     })
   })
   console.log(this.categories);
