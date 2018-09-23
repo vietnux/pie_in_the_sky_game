@@ -7,9 +7,9 @@ const QuestionView = function() {
 
 QuestionView.prototype.bindEvents = function () {
   PubSub.subscribe('Card:question-data', (event) => {
-    const questionData = event.detail;
-    console.log(questionData);
-    this.render(questionData);
+    console.log(event.detail.category);
+    const questionData = event.detail.category;
+    this.render(questionData['currentCard']);
   });
 
   PubSub.subscribe(`Card:is-correct`, (event => {
@@ -24,9 +24,8 @@ QuestionView.prototype.render = function (questionData) {
 
   const question = createAndAppend('div', null, null, null, this.element);
   question.innerHTML = questionData.question;
-
   const answers = createAndAppend('ul', null, null, null, this.element);
-  questionData.answers.forEach((answer, index) => {
+  questionData['allAnswers'].forEach((answer, index) => {
     const item = createAndAppend('li', null, null, null, answers);
     const radio = createAndAppend('input', null, null, null, item);
     radio.id = `answer-${index}`

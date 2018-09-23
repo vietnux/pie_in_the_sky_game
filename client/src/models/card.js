@@ -81,7 +81,7 @@ Card.prototype.showQuestion = function () {
       this.loadCategoryQuestions(currentCategory)
     }
     else {
-      console.log(question);
+      this.sortQuestion(currentCategory)
     }
   })
 
@@ -92,16 +92,18 @@ Card.prototype.showQuestion = function () {
     // });
 };
 
-Card.prototype.sortQuestion = function (question) {
-  const cardQuestion = question['cards'].pop()
+Card.prototype.sortQuestion = function (category) {
+  console.log(category);
+  const cardQuestion = category['cards'].pop()
   const allAnswers = cardQuestion.incorrect_answers;
   allAnswers.push(cardQuestion.correct_answer);
-  const cardData = {
-    question: cardQuestion.question,
+  category.currentCard = { question: cardQuestion.question,
         correctAnswer: cardQuestion.correct_answer,
         allAnswers: randomizeArray(allAnswers)
     }
-    console.log(cardData);
+    PubSub.publish('Card:question-data', {
+      category
+    });
 };
 
 Card.prototype.answerSelected = function (selectedIndex) {
