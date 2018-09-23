@@ -41,7 +41,7 @@ const Card = function() {
 
 Card.prototype.bindEvents = function() {
     this.loadCategoryQuestions()
-    this.showQuestion();
+  ;
 
 
   PubSub.subscribe('QuestionView:answer-selected', (event) => {
@@ -51,15 +51,26 @@ Card.prototype.bindEvents = function() {
 };
 
 Card.prototype.loadCategoryQuestions = function () {
+  //saving multiple times
   this.categories.forEach( function (category) {
     const card = new Card();
     const quizUrl = `${card.baseUrl}${category.categoryId}&type=multiple`
     const request = new Request(quizUrl)
     request.get()
     .then((cards) => {
-       category.cards = cards.results;
+        PubSub.publish('Card:info-loaded', cards)
+       // return category.cards = cards.results;
+    });
+    PubSub.subscribe('Card:info-loaded', (evt) => {
+      category.cards = event.detail.results;
     })
+
   })
+ this.showQuestion();
+};
+
+Card.prototype.saveQuestions = function () {
+
 };
 
 Card.prototype.loadCurrentQuestions = function (category) {
@@ -89,13 +100,18 @@ Card.prototype.loadCurrentQuestions = function (category) {
 };
 
 Card.prototype.showQuestion = function () {
-  console.log('showQuestion loaded');
+  PubSub.subscribe('Card:info-loaded', (evt) => {
+    category.cards = event.detail.results;
+  })
+  console.log(this.categories);
   PubSub.subscribe('BoardView:category', (evt) => {
     const categoryName = evt.detail;
-    this.categories.map (function (category) {
+    console.log(this.categories);
+    this.categories.forEach (function (category) {
       if  (category.name.match(categoryName)) {
         const thisCategory = category
         console.log(thisCategory);
+        // console.log(thisCategory);
       }
     })
     // const category = this.categories[categoryName];
