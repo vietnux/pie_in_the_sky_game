@@ -70,7 +70,7 @@ Card.prototype.showQuestion = function () {
       this.loadCategoryQuestions(currentCategory)
     }
     else {
-      this.sortQuestion(currentCategory)
+      this.sortQuestion(currentCategory[0])
     }
   })
 
