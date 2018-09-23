@@ -1,11 +1,11 @@
 #board-grid {
   display: grid;
-  grid-template-columns: 50px 50px 50px 50px 50px 50px 50px;
-  grid-template-rows: 50px 50px 50px 50px 50px 50px 50px;
+  grid-template-columns: 70px 70px 70px 70px 70px 70px 70px;
+  grid-template-rows: 70px 70px 70px 70px 70px 70px 70px;
   position: relative;
-  height: 350px;
-  width: 350px;
-  background-color: azure;
+  height: 420px;
+  width: 420px;
+  background-color: #26413C;
 }
 #player-piece {
   height: 50px;
@@ -16,7 +16,31 @@
   background-color: red;
   transition: all 0.2s linear;
 }
-.board-square {
+
+.movie-square, .science-square, .sport-square, .history-square,
+.music-square, .books-square, .board-square {
   border: 1px solid gray;
-  background-color: azure;
+}
+.science-square {
+  background-color: #F8333C;
+}
+
+.sport-square {
+ background-color: #FCAB10;
+}
+
+.movie-square {
+  background-color: #44AF69;
+}
+
+.history-square {
+  background-color: #2B9EB3;
+}
+
+.music-square {
+  background-color: #6A4699;
+}
+
+.books-square {
+  background-color: #840032;
 }
