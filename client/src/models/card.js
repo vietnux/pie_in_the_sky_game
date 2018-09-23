@@ -4,7 +4,7 @@ const randomizeArray = require('../helpers/randomize_array.js');
 
 const Card = function() {
   this.baseUrl = 'https://opentdb.com/api.php?amount=25&category=';
-  this.currentQuestion = null;
+  this.currentQuestion = 0;
 
   this.categories = [{
     "name": "movies",
@@ -40,7 +40,7 @@ const Card = function() {
 };
 
 Card.prototype.bindEvents = function() {
-    this.loadCategoryQuestions()
+    this.showQuestion()
   ;
 
 
@@ -50,87 +50,58 @@ Card.prototype.bindEvents = function() {
   });
 };
 
-Card.prototype.loadCategoryQuestions = function () {
-  //saving multiple times
-  this.categories.forEach( function (category) {
-    const card = new Card();
-    const quizUrl = `${card.baseUrl}${category.categoryId}&type=multiple`
-    const request = new Request(quizUrl)
+Card.prototype.loadCategoryQuestions = function (category) {
+  const quizUrl = `${this.baseUrl}${category[0]['categoryId']}&type=multiple`;
+  const request = new Request(quizUrl);
+
     request.get()
     .then((cards) => {
-        PubSub.publish('Card:info-loaded', cards)
-       // return category.cards = cards.results;
-    });
-    PubSub.subscribe('Card:info-loaded', (evt) => {
-      category.cards = event.detail.results;
-    })
-
-  })
- this.showQuestion();
-};
-
-Card.prototype.saveQuestions = function () {
-
-};
-
-Card.prototype.loadCurrentQuestions = function (category) {
-
-
-  // this.categories.forEach(
-  // //
-  //   questions.length = 0;
-  //   category.currentCard = 0;
-  //
-  // )
-
-  return request.get()
-    .then((cards) => {
-      cards.results.forEach((cardQuestion) => {
-        const allAnswers = cardQuestion.incorrect_answers;
-        allAnswers.push(cardQuestion.correct_answer);
-
-        questions.push({
-          question: cardQuestion.question,
-          correctAnswer: cardQuestion.correct_answer,
-          allAnswers: randomizeArray(allAnswers)
-        });
+      category[0]['cards'] = cards.results.splice(0, 25)
+      // category[0]['cards'].forEach((cardQuestion) => {
+      //   const allAnswers = cardQuestion.incorrect_answers;
+      //   allAnswers.push(cardQuestion.correct_answer);
+      //   category[0]['cards'].push({
+      //     question: cardQuestion.question,
+      //     correctAnswer: cardQuestion.correct_answer,
+      //     allAnswers: randomizeArray(allAnswers)
+      //   });
+      console.log(category[0]);
+      this.sortQuestion(category[0])
       });
-      console.log(category);
-    });
-};
+    };
+
 
 Card.prototype.showQuestion = function () {
-  PubSub.subscribe('Card:info-loaded', (evt) => {
-    category.cards = event.detail.results;
-  })
-  console.log(this.categories);
   PubSub.subscribe('BoardView:category', (evt) => {
-    const categoryName = evt.detail;
-    console.log(this.categories);
-    this.categories.forEach (function (category) {
-      if  (category.name.match(categoryName)) {
-        const thisCategory = category
-        console.log(thisCategory);
-        // console.log(thisCategory);
-      }
-    })
-    // const category = this.categories[categoryName];
-    // console.log(category);
-    // const question = category.cards[category.currentCard];
-    // category.currentCard++;
+    let categoryName = evt.detail;
+    let currentCategory = this.categories.filter(category => category.name.match(categoryName));
+    const question = currentCategory[0]['cards'];
 
     if (!question) {
-      this.loadCategoryQuestions(category)
-      .then(() => this.showQuestion(categoryName));
-      return;
+      this.loadCategoryQuestions(currentCategory)
     }
+    else {
+      console.log(question);
+    }
+  })
 
-    this.currentQuestion = question;
-    PubSub.publish('Card:question-data', {
-      question: question.question,
-      answers: question.allAnswers
-    });
-  });
+    // this.currentQuestion = question;
+    // PubSub.publish('Card:question-data', {
+    //   question: question.question,
+    //   answers: question.allAnswers
+    // });
+};
+
+Card.prototype.sortQuestion = function (question) {
+  const cardQuestion = question['cards'].pop()
+  const allAnswers = cardQuestion.incorrect_answers;
+  allAnswers.push(cardQuestion.correct_answer);
+  const cardData = {
+    question: cardQuestion.question,
+        correctAnswer: cardQuestion.correct_answer,
+        allAnswers: randomizeArray(allAnswers)
+    }
+    console.log(cardData);
 };
 
 Card.prototype.answerSelected = function (selectedIndex) {
