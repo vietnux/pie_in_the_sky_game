@@ -34,6 +34,7 @@ Game.prototype.checkResult = function (result) {
   }
   else {
     this.currentPlayer.score += 1;
+    PubSub.publish('Game:score-change', this.currentPlayer.score);
     this.playTurn();
   }
 };
