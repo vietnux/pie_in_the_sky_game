@@ -19,6 +19,9 @@ const game = new Game(player1, player2)
 const boardView = new BoardView(game);
 boardView.bindEvents();
 
+const card = new Card()
+card.bindEvents();
+
 const board = new Board();
 board.movesPlayer(player1, 7);
 
@@ -26,8 +29,6 @@ board.movesPlayer(player1, 7);
 const questionView = new QuestionView();
 questionView.bindEvents();
 
-const card = new Card()
-card.bindEvents();
 
 // // TODO: Remove this debug line...
 // card.showQuestion();
