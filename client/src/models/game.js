@@ -12,41 +12,42 @@ const Game = function (player1, player2) {
 
 Game.prototype.startGame = function () {
   this.currentPlayer = this.player1;
-  const board = new Board();
-  this.playTurn(board);
+  this.playTurn();
   PubSub.subscribe(`Card:is-correct`, (event => {
-    const isCorrect = event.detail;
-    console.log(isCorrect);
+    const result = event.detail;
+    this.checkResult(result)
   }))
 };
 
-Game.prototype.playTurn = function (board) {
+Game.prototype.playTurn = function () {
+  const board = new Board();
   const card = new Card();
   card.bindEvents();
   const dieRoll = this.currentPlayer.rollDie();
   PubSub.publish('Game:die-roll', dieRoll);
   board.movesPlayer(this.currentPlayer, dieRoll);
-  // card.asksQuestion(category) ? this.playTurn : this.endTurn
 
 };
 
-Game.prototype.checkFunction = function () {
-  PubSub.subscribe(`Card:is-correct`, (event => {
-    const isCorrect = event.detail;
-    console.log(isCorrect);
-  }))
+Game.prototype.checkResult = function (result) {
+  if (result === false) {
+    this.endTurn();
+  }
+  else {
+    this.currentPlayer.score += 1;
+    this.playTurn();
+  }
 };
 
 Game.prototype.endTurn = function () {
-  // this.currentPlayer = this.player1;
-  //removing above line as it makes it impossible to switch back to p1 from p2
   if (this.currentPlayer.name === this.player1.name) {
     this.currentPlayer = this.player2;
   }
   else {
-    this.currentPlayer = this.player1
-  }
+    this.currentPlayer = this.player1;
+  };
   PubSub.publish('Game:current-player-change', this.currentPlayer);
+  this.playTurn();
 };
 
 
