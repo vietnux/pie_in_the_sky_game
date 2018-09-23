@@ -24,13 +24,11 @@ Game.prototype.playTurn = function () {
   const card = new Card();
   card.bindEvents();
   const dieRoll = this.currentPlayer.rollDie();
-  console.log(this.currentPlayer);
   board.movesPlayer(this.currentPlayer, dieRoll);
 
 };
 
 Game.prototype.checkResult = function (result) {
-  console.log(result);
   if (result === false) {
     this.endTurn();
   }

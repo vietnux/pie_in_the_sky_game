@@ -16,12 +16,15 @@ BoardView.prototype.bindEvents = function () {
 
 BoardView.prototype.movePlayer = function () {
     PubSub.subscribe('Board:move-player', (evt) => {
+
       const player = evt.detail;
       const pieceName = evt.detail.name;
       const position = `#space${evt.detail.position}`
       const start = `#space${evt.detail.endTurnPosition}`;
       const place = document.querySelector(start)
       const piece = document.querySelector(`#${pieceName}`)
+      console.log(piece);
+      console.log(position);
       place.removeChild(piece)
       document.querySelector(position).appendChild(piece);
       document.querySelector(position)
