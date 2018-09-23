@@ -1,3 +1,4 @@
+const PubSub = require('../helpers/pub_sub.js');
 const Board = require('./board.js');
 const Player = require('./player.js');
 const Card = require('./card.js');
@@ -12,7 +13,11 @@ const Game = function (player1, player2) {
 Game.prototype.startGame = function () {
   this.currentPlayer = this.player1;
   const board = new Board();
-  this.playTurn(board)
+  this.playTurn(board);
+  PubSub.subscribe(`Card:is-correct`, (event => {
+    const isCorrect = event.detail;
+    console.log(isCorrect);
+  }))
 };
 
 Game.prototype.playTurn = function (board) {
@@ -22,6 +27,13 @@ Game.prototype.playTurn = function (board) {
   board.movesPlayer(this.currentPlayer, dieRoll);
   // card.asksQuestion(category) ? this.playTurn : this.endTurn
 
+};
+
+Game.prototype.checkFunction = function () {
+  PubSub.subscribe(`Card:is-correct`, (event => {
+    const isCorrect = event.detail;
+    console.log(isCorrect);
+  }))
 };
 
 Game.prototype.endTurn = function () {

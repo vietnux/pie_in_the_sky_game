@@ -40,10 +40,8 @@ const Card = function() {
 };
 
 Card.prototype.bindEvents = function() {
-    this.showQuestion()
+  this.showQuestion()
   ;
-
-
   PubSub.subscribe('QuestionView:answer-selected', (event) => {
     const selectedIndex = event.detail;
     this.answerSelected(selectedIndex);
@@ -54,12 +52,12 @@ Card.prototype.loadCategoryQuestions = function (category) {
   const quizUrl = `${this.baseUrl}${category[0]['categoryId']}&type=multiple`;
   const request = new Request(quizUrl);
 
-    request.get()
-    .then((cards) => {
-      category[0]['cards'] = cards.results.splice(0, 25)
-      this.sortQuestion(category[0])
-      });
-    };
+  request.get()
+  .then((cards) => {
+    category[0]['cards'] = cards.results.splice(0, 25)
+    this.sortQuestion(category[0])
+  });
+};
 
 
 Card.prototype.showQuestion = function () {
@@ -83,10 +81,10 @@ Card.prototype.sortQuestion = function (category) {
   const allAnswers = cardQuestion.incorrect_answers;
   allAnswers.push(cardQuestion.correct_answer);
   this.currentQuestion = { question: cardQuestion.question,
-        correctAnswer: cardQuestion.correct_answer,
-        allAnswers: randomizeArray(allAnswers)
-    }
-    PubSub.publish('Card:question-data', this.currentQuestion);
+    correctAnswer: cardQuestion.correct_answer,
+    allAnswers: randomizeArray(allAnswers)
+  }
+  PubSub.publish('Card:question-data', this.currentQuestion);
 };
 
 Card.prototype.answerSelected = function (selectedIndex) {

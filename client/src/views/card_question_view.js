@@ -7,14 +7,13 @@ const QuestionView = function() {
 
 QuestionView.prototype.bindEvents = function () {
   PubSub.subscribe('Card:question-data', (event) => {
-    console.log(event.detail);
     const questionData = event.detail;
     this.render(questionData);
   });
 
   PubSub.subscribe(`Card:is-correct`, (event => {
     const isCorrect = event.detail;
-    console.log('are you correct? ' + isCorrect);
+
     // TODO: What to do with this info? Maybe just the board cares about it?
   }))
 };
