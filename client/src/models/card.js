@@ -7,32 +7,32 @@ const Card = function() {
   this.currentQuestion = null;
 
   this.categories = [{
-    "name": "Movies",
+    "name": "movies",
     "categoryId": 11,
     "currentCard": 0,
     "cards": []
   }, {
-    "name": "Science",
+    "name": "science",
     "categoryId": 17,
     "currentCard": 0,
     "cards": []
   }, {
-    "name": "Sports",
+    "name": "sports",
     "categoryId": 21,
     "currentCard": 0,
     "cards": []
   }, {
-    "name": "History",
+    "name": "history",
     "categoryId": 23,
     "currentCard": 0,
     "cards": []
   }, {
-    "name": "Music",
+    "name": "music",
     "categoryId": 12,
     "currentCard": 0,
     "cards": []
   }, {
-    "name": "Books",
+    "name": "books",
     "categoryId": 10,
     "currentCard": 0,
     "cards": []

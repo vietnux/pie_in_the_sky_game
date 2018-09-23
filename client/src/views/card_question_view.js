@@ -2,12 +2,13 @@ const PubSub = require('../helpers/pub_sub.js');
 const createAndAppend = require('../helpers/create_append.js');
 
 const QuestionView = function() {
-  this.element = document.querySelector('#question-card');;
+  this.element = document.querySelector('#question-card');
 };
 
 QuestionView.prototype.bindEvents = function () {
   PubSub.subscribe('Card:question-data', (event) => {
     const questionData = event.detail;
+    console.log(questionData);
     this.render(questionData);
   });
 
@@ -21,19 +22,19 @@ QuestionView.prototype.bindEvents = function () {
 QuestionView.prototype.render = function (questionData) {
   this.element.innerHTML = '';
 
-  const question = createAndAppend('div', null, null, this.element);
+  const question = createAndAppend('div', null, null, null, this.element);
   question.innerHTML = questionData.question;
 
-  const answers = createAndAppend('ul', null, null, this.element);
+  const answers = createAndAppend('ul', null, null, null, this.element);
   questionData.answers.forEach((answer, index) => {
-    const item = createAndAppend('li', null, null, answers);
-    const radio = createAndAppend('input', null, null, item);
+    const item = createAndAppend('li', null, null, null, answers);
+    const radio = createAndAppend('input', null, null, null, item);
     radio.id = `answer-${index}`
     radio.type = 'radio';
     radio.name = 'answer';
     radio.value = index;
 
-    const label = createAndAppend('label', null, null, item);
+    const label = createAndAppend('label', null, null, null, item);
     label.htmlFor = radio.id;
     label.innerHTML = answer;
 
