@@ -12,28 +12,32 @@ const Game = function (player1, player2) {
 
 Game.prototype.startGame = function () {
   this.currentPlayer = this.player1;
-  const board = new Board();
-  this.playTurn(board);
+  this.playTurn();
   PubSub.subscribe(`Card:is-correct`, (event => {
-    const isCorrect = event.detail;
-    console.log(isCorrect);
+    const result = event.detail;
+    this.checkResult(result)
   }))
 };
 
-Game.prototype.playTurn = function (board) {
+Game.prototype.playTurn = function () {
+  const board = new Board();
   const card = new Card();
   card.bindEvents();
   const dieRoll = this.currentPlayer.rollDie();
+  console.log(this.currentPlayer);
   board.movesPlayer(this.currentPlayer, dieRoll);
-  // card.asksQuestion(category) ? this.playTurn : this.endTurn
 
 };
 
-Game.prototype.checkFunction = function () {
-  PubSub.subscribe(`Card:is-correct`, (event => {
-    const isCorrect = event.detail;
-    console.log(isCorrect);
-  }))
+Game.prototype.checkResult = function (result) {
+  console.log(result);
+  if (result === false) {
+    this.endTurn();
+  }
+  else {
+    this.currentPlayer.score += 1;
+    this.playTurn();
+  }
 };
 
 Game.prototype.endTurn = function () {
@@ -42,8 +46,9 @@ Game.prototype.endTurn = function () {
     this.currentPlayer = this.player2;
   }
   else {
-    this.currentPlayer = player1
-  }
+    this.currentPlayer = player1;
+  };
+  this.playTurn();
 };
 
 

@@ -11,11 +11,6 @@ QuestionView.prototype.bindEvents = function () {
     this.render(questionData);
   });
 
-  PubSub.subscribe(`Card:is-correct`, (event => {
-    const isCorrect = event.detail;
-
-    // TODO: What to do with this info? Maybe just the board cares about it?
-  }))
 };
 
 QuestionView.prototype.render = function (questionData) {
@@ -38,6 +33,7 @@ QuestionView.prototype.render = function (questionData) {
 
     radio.addEventListener('change', (event) => {
       PubSub.publish('QuestionView:answer-selected', event.target.value);
+      this.element.innerHTML = '';
     });
   });
 };
