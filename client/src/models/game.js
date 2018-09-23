@@ -23,9 +23,11 @@ Game.prototype.playTurn = function (board) {
 Game.prototype.endTurn = function () {
   this.currentPlayer = this.player1;
   if (this.currentPlayer.name === this.player1.name) {
+    this.player1.endTurnPosition = this.player1.position;
     this.currentPlayer = this.player2;
   }
   else {
+    this.player2.endTurnPosition = this.player2.position;
     this.currentPlayer = player1
   }
 };

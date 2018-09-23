@@ -3,6 +3,7 @@ const Player = function (name) {
   this.name = name;
   this.score = 0;
   this.position = 0;
+  this.endTurnPosition = 0;
 };
 
 Player.prototype.rollDie = function () {
