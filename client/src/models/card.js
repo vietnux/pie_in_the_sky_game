@@ -93,17 +93,14 @@ Card.prototype.showQuestion = function () {
 };
 
 Card.prototype.sortQuestion = function (category) {
-  console.log(category);
   const cardQuestion = category['cards'].pop()
   const allAnswers = cardQuestion.incorrect_answers;
   allAnswers.push(cardQuestion.correct_answer);
-  category.currentCard = { question: cardQuestion.question,
+  this.currentQuestion = { question: cardQuestion.question,
         correctAnswer: cardQuestion.correct_answer,
         allAnswers: randomizeArray(allAnswers)
     }
-    PubSub.publish('Card:question-data', {
-      category
-    });
+    PubSub.publish('Card:question-data', this.currentQuestion);
 };
 
 Card.prototype.answerSelected = function (selectedIndex) {

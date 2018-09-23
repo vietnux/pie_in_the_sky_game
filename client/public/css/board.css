@@ -12,6 +12,11 @@
   width: 420px;
   background-color: #26413C;
 }
+
+#question-card{
+  padding-top: 70px;
+}
+
 .playerPiece {
   height: 30px;
   width: 30px;

@@ -7,9 +7,9 @@ const QuestionView = function() {
 
 QuestionView.prototype.bindEvents = function () {
   PubSub.subscribe('Card:question-data', (event) => {
-    console.log(event.detail.category);
-    const questionData = event.detail.category;
-    this.render(questionData['currentCard']);
+    console.log(event.detail);
+    const questionData = event.detail;
+    this.render(questionData);
   });
 
   PubSub.subscribe(`Card:is-correct`, (event => {
