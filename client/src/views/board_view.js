@@ -17,11 +17,13 @@ BoardView.prototype.bindEvents = function () {
 BoardView.prototype.movePlayer = function () {
     PubSub.subscribe('Board:move-player', (evt) => {
       const player = evt.detail;
+      const pieceName = evt.detail.name;
       const position = `#space${evt.detail.position}`
       const start = `#space${evt.detail.endTurnPosition}`;
       const place = document.querySelector(start)
-      place.removeChild(this.player2Piece)
-      document.querySelector(position).appendChild(this.player2Piece);
+      const piece = document.querySelector(`#${pieceName}`)
+      place.removeChild(piece)
+      document.querySelector(position).appendChild(piece);
       document.querySelector(position)
     });
     PubSub.subscribe('Board:final-position', (evt) => {

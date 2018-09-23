@@ -57,15 +57,6 @@ Card.prototype.loadCategoryQuestions = function (category) {
     request.get()
     .then((cards) => {
       category[0]['cards'] = cards.results.splice(0, 25)
-      // category[0]['cards'].forEach((cardQuestion) => {
-      //   const allAnswers = cardQuestion.incorrect_answers;
-      //   allAnswers.push(cardQuestion.correct_answer);
-      //   category[0]['cards'].push({
-      //     question: cardQuestion.question,
-      //     correctAnswer: cardQuestion.correct_answer,
-      //     allAnswers: randomizeArray(allAnswers)
-      //   });
-      console.log(category[0]);
       this.sortQuestion(category[0])
       });
     };
@@ -85,11 +76,6 @@ Card.prototype.showQuestion = function () {
     }
   })
 
-    // this.currentQuestion = question;
-    // PubSub.publish('Card:question-data', {
-    //   question: question.question,
-    //   answers: question.allAnswers
-    // });
 };
 
 Card.prototype.sortQuestion = function (category) {

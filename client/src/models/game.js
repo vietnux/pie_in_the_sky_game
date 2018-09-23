@@ -16,6 +16,8 @@ Game.prototype.startGame = function () {
 };
 
 Game.prototype.playTurn = function (board) {
+  const card = new Card();
+  card.bindEvents();
   const dieRoll = this.currentPlayer.rollDie();
   board.movesPlayer(this.currentPlayer, dieRoll);
   // card.asksQuestion(category) ? this.playTurn : this.endTurn

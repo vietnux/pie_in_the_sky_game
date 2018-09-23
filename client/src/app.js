@@ -11,23 +11,24 @@ document.addEventListener('DOMContentLoaded', () => {
 // const container = document.querySelector('#card-details');
 // const quizView = new QuizView(container, form);
 // quizView.bindEvents();
-
 const player1 = new Player("player1");
 const player2 = new Player("player2")
 const game = new Game(player1, player2)
-
 const boardView = new BoardView(game);
-boardView.bindEvents();
-
-const card = new Card()
-card.bindEvents();
-
-const board = new Board();
-board.movesPlayer(player1, 7);
-
-
 const questionView = new QuestionView();
+boardView.bindEvents();
 questionView.bindEvents();
+
+game.startGame()
+
+
+// const card = new Card()
+// card.bindEvents();
+
+// const board = new Board();
+// board.movesPlayer(player1, 7);
+
+
 
 
 // // TODO: Remove this debug line...
