@@ -4,6 +4,7 @@ const Player = require('./models/player.js');
 const Card = require('./models/card.js');
 const BoardView = require('./views/board_view.js');
 const QuestionView = require('./views/card_question_view.js');
+const GameScoreView = require('./views/game_score_view.js');
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -16,7 +17,9 @@ const player2 = new Player("player2")
 const game = new Game(player1, player2)
 const boardView = new BoardView(game);
 const questionView = new QuestionView();
+const gameScoreView = new GameScoreView(game);
 boardView.bindEvents();
+gameScoreView.bindEvents();
 questionView.bindEvents();
 
 game.startGame()
