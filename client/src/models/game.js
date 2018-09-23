@@ -24,6 +24,7 @@ Game.prototype.playTurn = function (board) {
   const card = new Card();
   card.bindEvents();
   const dieRoll = this.currentPlayer.rollDie();
+  PubSub.publish('Game:die-roll', dieRoll);
   board.movesPlayer(this.currentPlayer, dieRoll);
   // card.asksQuestion(category) ? this.playTurn : this.endTurn
 
@@ -37,13 +38,15 @@ Game.prototype.checkFunction = function () {
 };
 
 Game.prototype.endTurn = function () {
-  this.currentPlayer = this.player1;
+  // this.currentPlayer = this.player1;
+  //removing above line as it makes it impossible to switch back to p1 from p2
   if (this.currentPlayer.name === this.player1.name) {
     this.currentPlayer = this.player2;
   }
   else {
-    this.currentPlayer = player1
+    this.currentPlayer = this.player1
   }
+  PubSub.publish('Game:current-player-change', this.currentPlayer);
 };
 
 
