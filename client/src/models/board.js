@@ -12,7 +12,7 @@ Board.prototype.movesPlayer = function (player, dieAmount) {
    };
    player.endTurnPosition = player.position;
  };
- return
+ PubSub.publish('Board:final-position', player.endTurnPosition)
 };
 
 

@@ -40,10 +40,10 @@ const Card = function() {
 };
 
 Card.prototype.bindEvents = function() {
-  PubSub.subscribe('Game:ShowQuestionFromCategory', (event) => {
-    const categoryIndex = event.detail;
-    this.showQuestion(categoryIndex);
-  });
+  // PubSub.subscribe('Game:ShowQuestionFromCategory', (event) => {
+  //   const categoryIndex = event.detail;
+    this.showQuestion();
+  // });
 
   PubSub.subscribe('QuestionView:answer-selected', (event) => {
     const selectedIndex = event.detail;
@@ -74,21 +74,25 @@ Card.prototype.loadCategoryQuestions = function (category) {
     });
 };
 
-Card.prototype.showQuestion = function (categoryIndex) {
-  const category = this.categories[categoryIndex];
-  const question = category.cards[category.currentCard];
-  category.currentCard++;
+Card.prototype.showQuestion = function () {
+  console.log('showQuestion loaded');
+  PubSub.subscribe('BoardView:category', (evt) => {
+    const categoryName = evt.detail;
+    const category = this.categories[categoryName];
+    const question = category.cards[category.currentCard];
+    category.currentCard++;
 
-  if (!question) {
-    this.loadCategoryQuestions(category)
-      .then(() => this.showQuestion(categoryIndex));
-    return;
-  }
+    if (!question) {
+      this.loadCategoryQuestions(category)
+      .then(() => this.showQuestion(categoryName));
+      return;
+    }
 
-  this.currentQuestion = question;
-  PubSub.publish('Card:question-data', {
-    question: question.question,
-    answers: question.allAnswers
+    this.currentQuestion = question;
+    PubSub.publish('Card:question-data', {
+      question: question.question,
+      answers: question.allAnswers
+    });
   });
 };
 

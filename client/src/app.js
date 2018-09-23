@@ -7,8 +7,6 @@ const QuestionView = require('./views/card_question_view.js');
 
 document.addEventListener('DOMContentLoaded', () => {
 
-const card = new Card()
-card.bindEvents();
 
 // const container = document.querySelector('#card-details');
 // const quizView = new QuizView(container, form);
@@ -25,10 +23,12 @@ const board = new Board();
 board.movesPlayer(player1, 7);
 
 
-
 const questionView = new QuestionView();
 questionView.bindEvents();
 
-// TODO: Remove this debug line...
-card.showQuestion(5);
+const card = new Card()
+card.bindEvents();
+
+// // TODO: Remove this debug line...
+// card.showQuestion();
 });

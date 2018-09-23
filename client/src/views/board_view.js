@@ -22,6 +22,13 @@ BoardView.prototype.movePlayer = function () {
       const place = document.querySelector(start)
       place.removeChild(this.player2Piece)
       document.querySelector(position).appendChild(this.player2Piece);
+      document.querySelector(position)
+    });
+    PubSub.subscribe('Board:final-position', (evt) => {
+      const position = `#space${evt.detail}`;
+      const square = document.querySelector(position);
+      const category =  square.classList.value;
+      PubSub.publish('BoardView:category', category);
     });
 
 };
