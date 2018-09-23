@@ -21,7 +21,7 @@ const boardView = new BoardView(game);
 boardView.bindEvents();
 
 const board = new Board();
-board.movesPlayer(player1,3);
+board.movesPlayer(player1, 7);
 
 
 

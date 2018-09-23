@@ -10,8 +10,10 @@ Board.prototype.movesPlayer = function (player, dieAmount) {
    if (player.position === 24) {
      player.position = 0;
    };
+   player.endTurnPosition = player.position;
  };
  return
 };
+
 
 module.exports = Board;

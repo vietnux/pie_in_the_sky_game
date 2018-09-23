@@ -7,41 +7,40 @@
   width: 420px;
   background-color: #26413C;
 }
-.player-piece {
+.playerPiece {
   height: 30px;
   width: 30px;
   border-radius:50%;
   position: absolute;
-  top: 0;
-  left: 0;
+
   background-color: black;
   transition: all 0.2s linear;
 }
 
-.movie-square, .science-square, .sport-square, .history-square,
-.music-square, .books-square, .board-square {
+.movies, .science, .sports, .history,
+.music, .books {
   border: 1px solid gray;
 }
-.science-square {
+.science{
   background-color: #F8333C;
 }
 
-.sport-square {
+.sports {
  background-color: #FCAB10;
 }
 
-.movie-square {
+.movies{
   background-color: #44AF69;
 }
 
-.history-square {
+.history {
   background-color: #2B9EB3;
 }
 
-.music-square {
+.music {
   background-color: #6A4699;
 }
 
-.books-square {
+.books {
   background-color: #840032;
 }
