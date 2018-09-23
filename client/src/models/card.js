@@ -51,53 +51,57 @@ Card.prototype.bindEvents = function() {
 };
 
 Card.prototype.loadCategoryQuestions = function () {
-  // console.log(this.baseUrl);
   this.categories.forEach( function (category) {
     const card = new Card();
     const quizUrl = `${card.baseUrl}${category.categoryId}&type=multiple`
     const request = new Request(quizUrl)
     request.get()
     .then((cards) => {
-       category.cards = cards;
-       console.log(cards.results);
+       category.cards = cards.results;
     })
   })
 };
 
-// Card.prototype.loadCategoryQuestions = function () {
-//   this.categories.forEach(
-//     const quizUrl = `${this.baseUrl}${category.categoryId}&type=multiple`;
-//     const questions = category.cards;
-//     const request = new Request(quizUrl);
-//     questions.length = 0;
-//     category.currentCard = 0;
-//
-//   )
-//
-//   return request.get()
-//     .then((cards) => {
-//       cards.results.forEach((cardQuestion) => {
-//         const allAnswers = cardQuestion.incorrect_answers;
-//         allAnswers.push(cardQuestion.correct_answer);
-//
-//         questions.push({
-//           question: cardQuestion.question,
-//           correctAnswer: cardQuestion.correct_answer,
-//           allAnswers: randomizeArray(allAnswers)
-//         });
-//       });
-//       console.log(category);
-//     });
-// };
+Card.prototype.loadCurrentQuestions = function (category) {
+
+
+  // this.categories.forEach(
+  // //
+  //   questions.length = 0;
+  //   category.currentCard = 0;
+  //
+  // )
+
+  return request.get()
+    .then((cards) => {
+      cards.results.forEach((cardQuestion) => {
+        const allAnswers = cardQuestion.incorrect_answers;
+        allAnswers.push(cardQuestion.correct_answer);
+
+        questions.push({
+          question: cardQuestion.question,
+          correctAnswer: cardQuestion.correct_answer,
+          allAnswers: randomizeArray(allAnswers)
+        });
+      });
+      console.log(category);
+    });
+};
 
 Card.prototype.showQuestion = function () {
   console.log('showQuestion loaded');
   PubSub.subscribe('BoardView:category', (evt) => {
-    console.log(evt);
     const categoryName = evt.detail;
-    const category = this.categories[categoryName];
-    const question = category.cards[category.currentCard];
-    category.currentCard++;
+    this.categories.map (function (category) {
+      if  (category.name.match(categoryName)) {
+        const thisCategory = category
+        console.log(thisCategory);
+      }
+    })
+    // const category = this.categories[categoryName];
+    // console.log(category);
+    // const question = category.cards[category.currentCard];
+    // category.currentCard++;
 
     if (!question) {
       this.loadCategoryQuestions(category)
