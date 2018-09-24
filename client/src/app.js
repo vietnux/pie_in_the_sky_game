@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
 const player1 = new Player("player1");
 const player2 = new Player("player2")
 const board = new Board();
+const card = new Card()
+card.bindEvents();
 const game = new Game(player1, player2, board);
 const boardView = new BoardView(game);
 const questionView = new QuestionView();
@@ -23,14 +25,4 @@ questionView.bindEvents();
 game.startGame()
 
 
-// const card = new Card()
-// card.bindEvents();
-
-// board.movesPlayer(player1, 7);
-
-
-
-
-// // TODO: Remove this debug line...
-// card.showQuestion();
 });

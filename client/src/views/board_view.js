@@ -15,7 +15,6 @@ BoardView.prototype.bindEvents = function () {
     const player = new Player('');
     player.rollDie();
   })
-
   this.player1Piece = createAndAppend('div', 'playerPiece', 'player1', '', start)
   this.player2Piece = createAndAppend('div', 'playerPiece', 'player2', '', start)
   this.movePlayer();
@@ -24,7 +23,6 @@ BoardView.prototype.bindEvents = function () {
 
 BoardView.prototype.movePlayer = function () {
     PubSub.subscribe('Board:move-player', (evt) => {
-
       const player = evt.detail;
       const pieceName = evt.detail.name;
       const position = `#space${evt.detail.position}`
@@ -52,14 +50,6 @@ BoardView.prototype.printNumber = function () {
   roller.innerHTML = number;
  })
 };
-
-// var button = document.getElementById('button');
-//
-// button.onclick = function() {
-//   var result = dice.roll();
-//   printNumber(result);
-// };
-
 
 
 module.exports = BoardView;
