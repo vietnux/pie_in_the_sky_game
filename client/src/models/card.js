@@ -61,7 +61,6 @@ Card.prototype.loadCategoryQuestions = function (category) {
 
 Card.prototype.showQuestion = function () {
   PubSub.subscribe('BoardView:category', (evt) => {
-    console.log(evt.detail);
     let categoryName = evt.detail;
     let currentCategory = this.categories.filter(category => category.name.match(categoryName));
     const question = currentCategory[0]['cards'];
