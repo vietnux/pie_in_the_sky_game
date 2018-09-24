@@ -21,9 +21,10 @@ Game.prototype.startGame = function () {
 };
 
 Game.prototype.playTurn = function () {
-  //TODO changing roll die from automatic to user input
-  // const dieRoll = this.currentPlayer.rollDie();
-  // this.board.movesPlayer(this.currentPlayer, dieRoll);
+  PubSub.subscribe('Player:rollnumber', (event => {
+  const moves = event.detail;
+  this.board.movesPlayer(this.currentPlayer, moves);
+}));
 
 };
 
