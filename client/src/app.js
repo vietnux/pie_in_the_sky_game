@@ -2,35 +2,46 @@ const Game = require('./models/game.js');
 const Board = require('./models/board.js');
 const Player = require('./models/player.js');
 const Card = require('./models/card.js');
-const GameScoreView = require('./views/game_score_view.js');
 const BoardView = require('./views/board_view.js');
 const PlayerView = require('./views/player_view.js');
 const QuestionView = require('./views/card_question_view.js');
+const GameScoreView = require('./views/game_score_view.js');
 
 document.addEventListener('DOMContentLoaded', () => {
 
-const player1 = new Player("player1");
-const player2 = new Player("player2");
+  const startGameForm = document.querySelector("#start-screen-form");
+  const startScreenDiv = document.querySelector('#start-screen');
 
-const board = new Board();
+  startGameForm.addEventListener('submit', (event) => {
+    event.preventDefault();
 
-const game = new Game(player1, player2, board);
-game.startGame()
-console.log('game is started', game);
+    const player1 = new Player(event.target.player1.value);
+    const player2 = new Player(event.target.player2.value);
 
-const boardView = new BoardView(game);
-boardView.bindEvents();
+    const newGame = new Game(player1, player2);
 
-const playerView = new PlayerView(game);
-playerView.bindEvents();
+    startScreenDiv.style.display = "none";
 
-const questionView = new QuestionView();
-questionView.bindEvents();
+    const board = new Board();
 
-const gameScoreView = new GameScoreView(game);
-gameScoreView.bindEvents();
+    const game = new Game(player1, player2, board);
+    game.startGame()
+    console.log('game is started', game);
 
-const card = new Card()
-card.bindEvents();
+    const playerView = new PlayerView(game);
+    playerView.bindEvents();
+
+    const gameScoreView = new GameScoreView(game);
+    gameScoreView.bindEvents();
+
+    const boardView = new BoardView(game);
+    boardView.bindEvents();
+
+    const questionView = new QuestionView();
+    questionView.bindEvents();
+
+    const card = new Card()
+    card.bindEvents();
+  });
 
 });
