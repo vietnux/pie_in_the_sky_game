@@ -4,7 +4,7 @@ const Timer = require('../timer.js');
 describe("Timer", function () {
 
 beforeEach(function () {
-  timer = new Timer (10);
+  timer = new Timer (4);
 })
 
   it("should have seconds", function () {
