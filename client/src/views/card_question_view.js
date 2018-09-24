@@ -37,6 +37,7 @@ QuestionView.prototype.render = function (questionData) {
       {
         radioButtons[i].disabled = true;
       };
+      document.querySelector('#dieButton').disabled = false;
     });
   });
 };
