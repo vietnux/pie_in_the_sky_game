@@ -7,13 +7,9 @@ const PlayerView = function (game) {
 PlayerView.prototype.bindEvents = function () {
 
   const currentPlayerDisplay = document.querySelector('#current-player');
-  currentPlayerDisplay.textContent = `${this.game.player1.name}:`;
-  PubSub.subscribe('Game:die-roll', (evt) => {
-    const dieRollDisplay = document.querySelector('#die-roll-display');
-    dieRollDisplay.textContent = `...rolled a ${evt.detail}`;
-  });
+  currentPlayerDisplay.textContent = `It's your turn ${this.game.player1.name}!`;
   PubSub.subscribe('Game:current-player-change', (evt) => {
-    currentPlayerDisplay.textContent = `${evt.detail.name}:`;
+    currentPlayerDisplay.textContent = `It's your turn ${evt.detail.name}!`;
   });
 };
 
