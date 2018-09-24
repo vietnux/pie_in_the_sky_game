@@ -27,11 +27,11 @@ BoardView.prototype.movePlayer = function () {
       const pieceName = evt.detail.name;
       const position = `#space${evt.detail.position}`
       const start = `#space${evt.detail.endTurnPosition}`;
-      const place = document.querySelector(start)
-      const piece = document.querySelector(`#${pieceName}`)
+      const place = document.querySelector(start);
+      const piece = document.querySelector(`#${pieceName}`);
       place.removeChild(piece)
       document.querySelector(position).appendChild(piece);
-      document.querySelector(position)
+      document.querySelector(position);
     });
     PubSub.subscribe('Board:final-position', (evt) => {
       const position = `#space${evt.detail}`;
