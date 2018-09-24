@@ -1,4 +1,4 @@
-body {
+.wrapper {
   display: grid;
   width: 100%;
   height: 100%;
@@ -9,18 +9,20 @@ body {
   grid-template-columns: 2fr 1fr;
 }
 
-body #game-view-container {
+.wrapper #game-view-container {
   grid-area: game;
+  display: flex;
+  justify-content: space-evenly;
 }
 
-body #board-container {
+.wrapper #board-container {
   grid-area: board;
 }
 
-body #player-view-container {
+.wrapper #player-view-container {
   grid-area: player;
 }
 
-body #question-card {
+.wrapper #question-card {
     grid-area: card;
 }
