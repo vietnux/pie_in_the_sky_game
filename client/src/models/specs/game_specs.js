@@ -12,18 +12,19 @@ beforeEach(function () {
   board = new Board;
 })
 
-  it("can start game and play first turn", function () {
-    game.startGame()
-    const actual = (0 < player1.position && player1.position < 7)
-    assert.strictEqual(actual, true);
-  })
+  // it("can start game and play first turn", function () {
+  //   game.startGame()
+  //   const actual = (0 < player1.position && player1.position < 7)
+  //   assert.strictEqual(actual, true);
+  // })
 
-  it("can switch player turns", function () {
-     game.endTurn();
-     const actual = game.currentPlayer
-     assert.strictEqual(actual, player2)
-
-  })
+  // it("can switch player turns", function () {
+  //   game.startGame();
+  //    game.endTurn();
+  //    const actual = game.currentPlayer
+  //    assert.strictEqual(actual, player2)
+  //
+  // })
 
 
 });

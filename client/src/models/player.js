@@ -10,8 +10,8 @@ const Player = function (name) {
 
 Player.prototype.rollDie = function () {
   const randomNumber = Math.floor(Math.random() * 6 + 1 );
-  console.log('die roll', randomNumber);
   PubSub.publish('Player:rollnumber', randomNumber)
+  return randomNumber
 };
 
 

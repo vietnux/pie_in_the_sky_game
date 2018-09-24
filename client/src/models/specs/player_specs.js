@@ -17,11 +17,5 @@ beforeEach(function () {
     assert.strictEqual(actual, 0);
   });
 
-  it("should roll a random number", function () {
-    const number = player.rollDie();
-    const actual = (0 < number && number < 7);
-    console.log(number);
-    assert.strictEqual(actual, true);
-  })
 
 });
