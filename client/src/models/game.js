@@ -30,27 +30,6 @@ Game.prototype.playTurn = function () {
 
 };
 
-Game.prototype.timer = function (time) {
-  let seconds = 60;
-  let mins = time;
-
-  if( seconds > 0 ) {
-    setTimeout(this.timerCountdown(mins, seconds), 1000);
-  }
-  else if (mins > 1){
-    countdown(mins-1);
-  }
-  this.timerCountdown(mins, seconds);
-};
-
-
-Game.prototype.timerCountdown = function (mins, seconds) {
-  const timer = document.querySelector('#timer');
-  let currentMins = mins - 1
-  seconds --;
-  timer.innerHTML = currentMins.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
-};
-
 Game.prototype.checkResult = function (result) {
   if (result === false) {
     console.log(result);
