@@ -15,7 +15,6 @@ QuestionView.prototype.bindEvents = function () {
 
 QuestionView.prototype.render = function (questionData) {
   this.element.innerHTML = '';
-
   const question = createAndAppend('div', null, null, null, this.element);
   question.innerHTML = questionData.question;
   const answers = createAndAppend('ul', null, null, null, this.element);
@@ -33,7 +32,6 @@ QuestionView.prototype.render = function (questionData) {
 
     radio.addEventListener('change', (event) => {
       PubSub.publish('QuestionView:answer-selected', event.target.value);
-      this.element.innerHTML = '';
     });
   });
 };
