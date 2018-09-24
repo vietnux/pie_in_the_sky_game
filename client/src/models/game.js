@@ -30,6 +30,7 @@ Game.prototype.playTurn = function () {
 
 Game.prototype.checkResult = function (result) {
   if (result === false) {
+    console.log(result);
     this.endTurn();
   }
   else {
