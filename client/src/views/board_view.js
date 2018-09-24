@@ -1,5 +1,6 @@
 const createAndAppend = require('../helpers/create_append');
 const PubSub = require('../helpers/pub_sub.js');
+const Player = require('../models/player.js');
 
 const BoardView = function (game) {
   this.game = game;
@@ -8,10 +9,17 @@ const BoardView = function (game) {
 }
 
 BoardView.prototype.bindEvents = function () {
-  const start = document.querySelector('#space0')
+  const start = document.querySelector('#space0');
+  const dieButton = document.querySelector('#dieButton');
+  dieButton.addEventListener('click', function () {
+    const player = new Player('');
+    player.rollDie();
+  })
+
   this.player1Piece = createAndAppend('div', 'playerPiece', 'player1', '', start)
   this.player2Piece = createAndAppend('div', 'playerPiece', 'player2', '', start)
   this.movePlayer();
+  this.printNumber();
 };
 
 BoardView.prototype.movePlayer = function () {
@@ -37,11 +45,13 @@ BoardView.prototype.movePlayer = function () {
 };
 
 //die in board view
-BoardView.prototype.printNumber = function (number) {
+BoardView.prototype.printNumber = function () {
+  PubSub.subscribe('Player:rollnumber', (evt) => {
+  const number = evt.detail;
   const roller = document.querySelector('#diePlace');
   roller.innerHTML = number;
+ })
 };
-
 
 // var button = document.getElementById('button');
 //

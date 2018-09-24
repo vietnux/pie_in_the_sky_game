@@ -3,9 +3,10 @@ const Board = require('./board.js');
 const Player = require('./player.js');
 const Card = require('./card.js');
 
-const Game = function (player1, player2) {
+const Game = function (player1, player2, board) {
   this.player1 = player1;
   this.player2 = player2;
+  this.board = board;
   this.currentPlayer = null;
   this.currentCategory = null;
 };
@@ -20,12 +21,9 @@ Game.prototype.startGame = function () {
 };
 
 Game.prototype.playTurn = function () {
-  const board = new Board();
-  const card = new Card();
-  card.bindEvents();
-
-  const dieRoll = this.currentPlayer.rollDie();
-  board.movesPlayer(this.currentPlayer, dieRoll);
+  //TODO changing roll die from automatic to user input
+  // const dieRoll = this.currentPlayer.rollDie();
+  // this.board.movesPlayer(this.currentPlayer, dieRoll);
 
 };
 
