@@ -14,19 +14,18 @@ const Game = function (player1, player2, board) {
 Game.prototype.startGame = function () {
   this.currentPlayer = this.player1;
   this.playTurn();
-  PubSub.subscribe(`Card:is-correct`, (event => {
+  PubSub.subscribe(`Card:is-correct`, (event) => {
     const result = event.detail;
     this.checkResult(result)
-  }))
+  });
 };
 
 Game.prototype.playTurn = function () {
   PubSub.subscribe('Player:rollnumber', (event) => {
-  const moves = event.detail;
-  console.log('moves', moves);
-  this.board.movesPlayer(this.currentPlayer, moves);
-});
-
+    const moves = event.detail;
+    console.log('moves', moves);
+    this.board.movesPlayer(this.currentPlayer, moves);
+  });
 };
 
 Game.prototype.checkResult = function (result) {
@@ -37,7 +36,7 @@ Game.prototype.checkResult = function (result) {
   else {
     this.currentPlayer.score += 1;
     PubSub.publish('Game:score-change', this.currentPlayer.score);
-  }
+  };
 };
 
 Game.prototype.endTurn = function () {

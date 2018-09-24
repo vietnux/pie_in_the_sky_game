@@ -14,5 +14,4 @@ Player.prototype.rollDie = function () {
   PubSub.publish('Player:rollnumber', randomNumber)
 };
 
-
 module.exports = Player;

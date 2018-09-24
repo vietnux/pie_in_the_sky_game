@@ -24,34 +24,32 @@ BoardView.prototype.bindEvents = function () {
 };
 
 BoardView.prototype.movePlayer = function () {
-    PubSub.subscribe('Board:move-player', (evt) => {
-      const player = evt.detail;
-      const pieceName = evt.detail.name;
-      const position = `#space${evt.detail.position}`
-      const start = `#space${evt.detail.endTurnPosition}`;
-      const place = document.querySelector(start);
-      const piece = document.querySelector(`#${pieceName}`);
-      place.removeChild(piece)
-      document.querySelector(position).appendChild(piece);
-      document.querySelector(position);
-    });
-    PubSub.subscribe('Board:final-position', (evt) => {
-      const position = `#space${evt.detail}`;
-      const square = document.querySelector(position);
-      const category =  square.classList.value;
-      PubSub.publish('BoardView:category', category);
-    });
-
+  PubSub.subscribe('Board:move-player', (event) => {
+    const player = event.detail;
+    const pieceName = event.detail.name;
+    const position = `#space${event.detail.position}`
+    const start = `#space${event.detail.endTurnPosition}`;
+    const place = document.querySelector(start);
+    const piece = document.querySelector(`#${pieceName}`);
+    place.removeChild(piece)
+    document.querySelector(position).appendChild(piece);
+    document.querySelector(position);
+  });
+  PubSub.subscribe('Board:final-position', (event) => {
+    const position = `#space${event.detail}`;
+    const square = document.querySelector(position);
+    const category =  square.classList.value;
+    PubSub.publish('BoardView:category', category);
+  });
 };
 
 //die in board view
 BoardView.prototype.printNumber = function () {
-  PubSub.subscribe('Player:rollnumber', (evt) => {
-  const number = evt.detail;
-  const roller = document.querySelector('#diePlace');
-  roller.innerHTML = number;
- })
+  PubSub.subscribe('Player:rollnumber', (event) => {
+    const number = event.detail;
+    const roller = document.querySelector('#diePlace');
+    roller.innerHTML = number;
+  });
 };
-
 
 module.exports = BoardView;

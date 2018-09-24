@@ -4,7 +4,7 @@ const Request = function (url) {
 
 Request.prototype.get = function () {
   return fetch(this.url)
-    .then((response) => response.json());
+  .then((response) => response.json());
 };
 
 Request.prototype.post = function (payload) {
@@ -13,7 +13,7 @@ Request.prototype.post = function (payload) {
     body: JSON.stringify(payload),
     headers: { 'Content-Type': 'application/json' }
   })
-    .then((response) => response.json());
+  .then((response) => response.json());
 };
 
 Request.prototype.put = function (id, payload) {
@@ -29,7 +29,7 @@ Request.prototype.delete = function (id) {
   return fetch(`${this.url}/${id}`, {
     method: 'DELETE'
   })
-    .then((response) => response.json());
+  .then((response) => response.json());
 };
 
 module.exports = Request;
