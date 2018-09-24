@@ -1,0 +1,70 @@
+
+.scaler-container {
+  background: rgb(29, 39, 57);
+  background: black;
+  border-radius: 50%;
+  bottom: 26px;
+  box-shadow: 0 1px 2px gray, 0 2px 2px rgba(0, 0, 0, .2);
+  height: auto;
+  left: 26px;
+  pointer-events: none;
+  display: inline-block;
+  position: relative;
+  width: auto;
+}
+
+.scaler {
+  -webkit-transform: scale(0.25);
+  -webkit-transform-origin: 0 0;
+  height: 50px;
+  margin: 3px;
+  width: 50px;
+}
+
+.segments {
+  border-radius: 50%;
+  height: 200px;
+  list-style: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 200px;
+}
+
+.segment {
+  -webkit-transform-origin: 0 100%;
+  background: rgb(227, 234, 249);
+  box-shadow: 0 0 0 6px rgb(29, 39, 57) inset;
+  height: 50%;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50%;
+}
+
+/* science */
+ul > :nth-child(1) {
+  background-color: #F8333C;
+}
+/* sports */
+ul > :nth-child(2) {
+  background-color: #FCAB10;
+}
+/* movies */
+ul > :nth-child(3) {
+  background-color: #44AF69;
+}
+/* history */
+ul > :nth-child(4) {
+  background-color: #2B9EB3;
+}
+/* music */
+ul > :nth-child(5) {
+  background-color: #6A4699;
+}
+/* books */
+ul > :nth-child(6) {
+  background-color: #840032;
+}

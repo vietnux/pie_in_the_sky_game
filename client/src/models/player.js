@@ -3,7 +3,7 @@ const PubSub = require('../helpers/pub_sub.js');
 const Player = function (name) {
   this.icon = null;
   this.name = name;
-  this.score = 0;
+  this.score = [0, 0, 0, 0, 0, 0];
   this.position = 0;
   this.endTurnPosition = 0;
 };

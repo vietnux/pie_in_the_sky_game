@@ -17,6 +17,23 @@ GameScoreView.prototype.updateScores = function () {
   player1ScoreDisplay.textContent = `${this.game.player1.name} score: ${this.game.player1.score}`;
   const player2ScoreDisplay = document.querySelector('#player2-score-display');
   player2ScoreDisplay.textContent = `${this.game.player2.name} score: ${this.game.player2.score}`;
+  this.renderScore(this.game.player1.score, player1ScoreDisplay);
+  this.renderScore(this.game.player2.score, player2ScoreDisplay);
+};
+
+GameScoreView.prototype.renderScore = function (scores, container) {
+  const scalerContainer = createAndAppend('div', 'scaler-container', null, null, container);
+  const scaler = createAndAppend('div', 'scaler', null, null, scalerContainer);
+  const list = createAndAppend('ul', 'segments', null, null, scaler);
+
+  scores.forEach((value, index) => {
+    const segment = createAndAppend('li', 'segment', null, null, list);
+    segment.style.webkitTransform = `rotate(${index * 60}deg) skewY(-30deg)`;
+    if (value === 0) {
+      segment.style.visibility = 'hidden';
+    }
+  });
+
 };
 
 module.exports = GameScoreView;
