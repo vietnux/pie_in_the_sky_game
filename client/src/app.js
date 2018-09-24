@@ -16,7 +16,6 @@ const board = new Board();
 
 const game = new Game(player1, player2, board);
 game.startGame()
-console.log('game is started', game);
 
 const boardView = new BoardView(game);
 boardView.bindEvents();
