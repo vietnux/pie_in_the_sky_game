@@ -3,9 +3,10 @@ const Board = require('./board.js');
 const Player = require('./player.js');
 const Card = require('./card.js');
 
-const Game = function (player1, player2) {
+const Game = function (player1, player2, board) {
   this.player1 = player1;
   this.player2 = player2;
+  this.board = board;
   this.currentPlayer = null;
   this.currentCategory = null;
 };
@@ -20,11 +21,8 @@ Game.prototype.startGame = function () {
 };
 
 Game.prototype.playTurn = function () {
-  const board = new Board();
-  const card = new Card();
-  card.bindEvents();
   const dieRoll = this.currentPlayer.rollDie();
-  board.movesPlayer(this.currentPlayer, dieRoll);
+  this.board.movesPlayer(this.currentPlayer, dieRoll);
 
 };
 
@@ -39,12 +37,11 @@ Game.prototype.checkResult = function (result) {
 };
 
 Game.prototype.endTurn = function () {
-  this.currentPlayer = this.player1;
   if (this.currentPlayer.name === this.player1.name) {
     this.currentPlayer = this.player2;
   }
   else {
-    this.currentPlayer = player1;
+    this.currentPlayer = this.player1;
   };
   this.playTurn();
 };

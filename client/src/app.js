@@ -12,18 +12,20 @@ document.addEventListener('DOMContentLoaded', () => {
 // const quizView = new QuizView(container, form);
 // quizView.bindEvents();
 const player1 = new Player("player1");
-const player2 = new Player("player2")
-const game = new Game(player1, player2)
+const player2 = new Player("player2");
+const board = new Board();
+const game = new Game(player1, player2, board);
 const boardView = new BoardView(game);
 const questionView = new QuestionView();
 boardView.bindEvents();
 questionView.bindEvents();
 
+const card = new Card()
+card.bindEvents();
+
 game.startGame()
 
 
-// const card = new Card()
-// card.bindEvents();
 
 // const board = new Board();
 // board.movesPlayer(player1, 7);
