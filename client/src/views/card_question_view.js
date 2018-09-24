@@ -32,6 +32,11 @@ QuestionView.prototype.render = function (questionData) {
 
     radio.addEventListener('change', (event) => {
       PubSub.publish('QuestionView:answer-selected', event.target.value);
+      const radioButtons = document.querySelectorAll('input[type=radio]')
+      for (i = 0; i < radioButtons.length; i++)
+      {
+        radioButtons[i].disabled = true;
+      };
     });
   });
 };

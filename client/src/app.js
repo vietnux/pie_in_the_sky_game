@@ -9,10 +9,6 @@ const GameScoreView = require('./views/game_score_view.js');
 
 document.addEventListener('DOMContentLoaded', () => {
 
-
-// const container = document.querySelector('#card-details');
-// const quizView = new QuizView(container, form);
-// quizView.bindEvents();
 const player1 = new Player("player1");
 const player2 = new Player("player2");
 const board = new Board();
@@ -33,6 +29,5 @@ const card = new Card()
 card.bindEvents();
 
 game.startGame()
-
 
 });
