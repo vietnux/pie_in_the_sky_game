@@ -15,7 +15,7 @@ BoardView.prototype.bindEvents = function () {
   dieButton.addEventListener('click', () => {
     this.game.currentPlayer.rollDie();
     // player.rollDie();
-    this.disabled = true;
+    dieButton.disabled = true;
   })
   this.player1Piece = createAndAppend('div', 'playerPiece', 'player1', '', start)
   this.player2Piece = createAndAppend('div', 'playerPiece', 'player2', '', start)
