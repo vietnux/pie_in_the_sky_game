@@ -23,8 +23,6 @@ BoardView.prototype.movePlayer = function () {
       const start = `#space${evt.detail.endTurnPosition}`;
       const place = document.querySelector(start)
       const piece = document.querySelector(`#${pieceName}`)
-      console.log(piece);
-      console.log(position);
       place.removeChild(piece)
       document.querySelector(position).appendChild(piece);
       document.querySelector(position)
@@ -37,6 +35,20 @@ BoardView.prototype.movePlayer = function () {
     });
 
 };
+
+//die in board view
+BoardView.prototype.printNumber = function (number) {
+  const roller = document.querySelector('#diePlace');
+  roller.innerHTML = number;
+};
+
+
+// var button = document.getElementById('button');
+//
+// button.onclick = function() {
+//   var result = dice.roll();
+//   printNumber(result);
+// };
 
 
 

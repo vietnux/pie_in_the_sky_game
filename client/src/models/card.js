@@ -40,8 +40,7 @@ const Card = function() {
 };
 
 Card.prototype.bindEvents = function() {
-  this.showQuestion()
-  ;
+  this.showQuestion();
   PubSub.subscribe('QuestionView:answer-selected', (event) => {
     const selectedIndex = event.detail;
     this.answerSelected(selectedIndex);
@@ -71,8 +70,8 @@ Card.prototype.showQuestion = function () {
     }
     else {
       this.sortQuestion(currentCategory[0])
-    }
-  })
+    };
+  });
 
 };
 
@@ -83,7 +82,7 @@ Card.prototype.sortQuestion = function (category) {
   this.currentQuestion = { question: cardQuestion.question,
     correctAnswer: cardQuestion.correct_answer,
     allAnswers: randomizeArray(allAnswers)
-  }
+  };
   PubSub.publish('Card:question-data', this.currentQuestion);
 };
 

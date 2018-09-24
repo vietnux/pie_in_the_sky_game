@@ -23,6 +23,7 @@ Game.prototype.playTurn = function () {
   const board = new Board();
   const card = new Card();
   card.bindEvents();
+
   const dieRoll = this.currentPlayer.rollDie();
   board.movesPlayer(this.currentPlayer, dieRoll);
 
@@ -39,9 +40,10 @@ Game.prototype.checkResult = function (result) {
 };
 
 Game.prototype.endTurn = function () {
-  this.currentPlayer = this.player1;
+
   if (this.currentPlayer.name === this.player1.name) {
     this.currentPlayer = this.player2;
+    console.log(this.player2);
   }
   else {
     this.currentPlayer = player1;
