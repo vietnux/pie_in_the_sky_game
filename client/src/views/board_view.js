@@ -11,9 +11,10 @@ const BoardView = function (game) {
 BoardView.prototype.bindEvents = function () {
   const start = document.querySelector('#space0');
   const dieButton = document.querySelector('#dieButton');
-  dieButton.addEventListener('click', function () {
-    const player = new Player('');
-    player.rollDie();
+
+  dieButton.addEventListener('click', () => {
+    this.game.currentPlayer.rollDie();
+    // player.rollDie();
     this.disabled = true;
   })
   this.player1Piece = createAndAppend('div', 'playerPiece', 'player1', '', start)
