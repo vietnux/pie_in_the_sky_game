@@ -1,6 +1,5 @@
 const createAndAppend = require('../helpers/create_append');
 const PubSub = require('../helpers/pub_sub.js');
-const Player = require('../models/player.js');
 
 const BoardView = function (game) {
   this.game = game;
@@ -14,7 +13,6 @@ BoardView.prototype.bindEvents = function () {
 
   dieButton.addEventListener('click', () => {
     this.game.currentPlayer.rollDie();
-    // player.rollDie();
     dieButton.disabled = true;
   })
   this.player1Piece = createAndAppend('div', 'playerPiece', 'player1', '', start)

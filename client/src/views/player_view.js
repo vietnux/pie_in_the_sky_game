@@ -1,3 +1,4 @@
+const createAndAppend = require('../helpers/create_append');
 const PubSub = require('../helpers/pub_sub.js');
 
 const PlayerView = function (game) {

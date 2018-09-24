@@ -1,11 +1,11 @@
-const Board = require('./models/board.js');
 const Game = require('./models/game.js');
+const Board = require('./models/board.js');
 const Player = require('./models/player.js');
 const Card = require('./models/card.js');
+const GameScoreView = require('./views/game_score_view.js');
 const BoardView = require('./views/board_view.js');
 const PlayerView = require('./views/player_view.js');
 const QuestionView = require('./views/card_question_view.js');
-const GameScoreView = require('./views/game_score_view.js');
 
 document.addEventListener('DOMContentLoaded', () => {
 

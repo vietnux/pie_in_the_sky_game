@@ -1,5 +1,5 @@
-const PubSub = require('../helpers/pub_sub.js');
 const createAndAppend = require('../helpers/create_append.js');
+const PubSub = require('../helpers/pub_sub.js');
 
 const QuestionView = function() {
   this.element = document.querySelector('#question-card');
