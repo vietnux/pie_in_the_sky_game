@@ -3,19 +3,20 @@ body {
 }
 
 #start-screen {
-  position: fixed;
+  position: absolute;
   z-index: 2;
-  background-color: #AFBED1;
+  background-color: #B7B0E5;
   width: 100%;
   height: 100%;
-  color: #165D7A;
+  color: #68534B;
   font-family: 'Black Ops One', cursive;
 }
 
 #start-screen h1 {
   text-align: center;
-  font-size: 3em;
+  font-size: 5em;
   margin-top: 1em;
+  /* -webkit-text-stroke: 2px black; */
 }
 
 #start-screen-form {
@@ -28,7 +29,7 @@ body {
   margin: 10% auto;
 }
 #start-screen-form input, #start-screen-form label {
-  font-size: 1.2em;
+  font-size: 1.5em;
   margin: 1em;
 }
 #start-screen-form input[type="submit"] {
@@ -82,15 +83,17 @@ font-family: 'Graduate', cursive;
 }
 
 .wrapper #player-view-container {
-  margin-top: 2em;
   grid-area: player;
+  margin-top: 2em;
   text-align: center;
+  line-height: 1.5em;
 }
 
 .wrapper #question-card {
-  margin-left: .5em;
-  font-family: 'Montserrat', sans-serif;
   grid-area: card;
+  margin-left: 1em;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.5em;
 }
 
 .wrapper #question-card ul {

@@ -175,9 +175,6 @@
   grid-column: 2 / 4;
 } */
 
-#question-card {
-
-}
 .board-piece {
   position: absolute;
   z-index: 1;
