@@ -66,6 +66,7 @@ Game.prototype.endTurn = function () {
 Game.prototype.timerFinish = function () {
   PubSub.subscribe('Timer:currentTime', (evt) => {
     console.log(evt);
+    const time = evt.detail;
     if (time === 0 ) {
       this.endTurn();
     }
