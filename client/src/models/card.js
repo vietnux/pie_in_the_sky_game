@@ -3,7 +3,7 @@ const PubSub = require('../helpers/pub_sub.js');
 const randomizeArray = require('../helpers/randomize_array.js');
 
 const Card = function(difficulty) {
-  this.baseUrl = 'https://opentdb.com/api.php?amount=25&category=';
+  this.baseUrl = 'https://opentdb.com/api.php?amount=20&category=';
   this.currentQuestion = 0;
   this.difficulty = difficulty;
 
