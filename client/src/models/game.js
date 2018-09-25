@@ -10,12 +10,13 @@ const Game = function (player1, player2, board) {
   this.board = board;
   this.currentPlayer = null;
   this.currentCategory = null;
+  this.timer = null;
 };
 
 Game.prototype.startGame = function () {
   this.currentPlayer = this.player1;
-  const timer = new Timer (60);
-  timer.countdown();
+  this.timer = new Timer (70);
+  this.timer.countdown();
   this.playTurn();
   PubSub.subscribe(`Card:is-correct`, (event => {
     const result = event.detail;
@@ -25,9 +26,7 @@ Game.prototype.startGame = function () {
 
 Game.prototype.playTurn = function () {
   PubSub.subscribe('Player:rollnumber', (event) => {
-  this.timer(2);
   const moves = event.detail;
-  console.log('moves', moves);
   this.board.movesPlayer(this.currentPlayer, moves);
 });
 
@@ -48,10 +47,11 @@ Game.prototype.endTurn = function () {
 
   if (this.currentPlayer.name === this.player1.name) {
     this.currentPlayer = this.player2;
-    console.log(this.player2);
   }
   else {
     this.currentPlayer = this.player1;
+    const timer = new Timer (70);
+    timer.countdown();
   };
   PubSub.publish('Game:current-player-change', this.currentPlayer);
 };

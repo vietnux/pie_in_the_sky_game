@@ -24,7 +24,7 @@ Timer.prototype.countdown = function (section) {
 
 Timer.prototype.motion = function (section) {
   if (this.timeLeft === 0) {
-  clearInterval(this.tick)
+    this.endTimer();
 }
 else {
   this.timeLeft --;
@@ -33,7 +33,7 @@ PubSub.publish('Timer:currentTime', this.timeLeft)
 };
 
 Timer.prototype.endTimer = function () {
-  console.log('timer done!');
+  clearInterval(this.tick)
 };
 
 module.exports = Timer;

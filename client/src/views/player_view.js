@@ -17,7 +17,10 @@ PlayerView.prototype.bindEvents = function () {
 PlayerView.prototype.setTimer = function () {
   PubSub.subscribe('Timer:currentTime', (evt) => {
     const timerPlace = document.querySelector('#timer');
-    timerPlace.innerHTML = `You have ${evt.detail} seconds left`
+    let time = evt.detail
+    let mins = Math.floor(evt.detail / 60);
+    let seconds = evt.detail % 60;
+    timerPlace.innerHTML = `You have ${mins} minutes and ${seconds} seconds left`
   })
 };
 
