@@ -35,7 +35,7 @@
 .segment {
   -webkit-transform-origin: 0 100%;
   background: rgb(227, 234, 249);
-  box-shadow: 0 0 0 6px rgb(29, 39, 57) inset;
+  box-shadow: 0 0 0 10px rgba(29, 39, 57, .3) inset;
   height: 50%;
   overflow: hidden;
   position: absolute;
@@ -66,5 +66,5 @@
 }
 /* books */
   .segments > :nth-child(6) {
-  background-color: #FF5647;
+  background-color: #F96377;
 }

@@ -1,3 +1,7 @@
+body {
+  background-color: #F2FDFF;
+}
+
 #start-screen {
   position: fixed;
   z-index: 2;

@@ -1,5 +1,6 @@
 const createAndAppend = require('../helpers/create_append.js');
 const PubSub = require('../helpers/pub_sub.js');
+const he = require('he');
 
 const QuestionView = function() {
   this.element = document.querySelector('#question-card');
@@ -14,8 +15,9 @@ QuestionView.prototype.bindEvents = function () {
 
 QuestionView.prototype.render = function (questionData) {
   this.element.innerHTML = '';
-  const question = createAndAppend('div', null, null, null, this.element);
-  question.innerHTML = questionData.question;
+  const questionText = he.decode(questionData.question);
+  const question = createAndAppend('div', null, null, questionText, this.element);
+  // question.innerHTML = questionData.question;
   const answers = createAndAppend('ul', null, null, null, this.element);
   questionData['allAnswers'].forEach((answer, index) => {
     const item = createAndAppend('li', null, null, null, answers);
