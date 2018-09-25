@@ -2,9 +2,10 @@ const Request = require('../helpers/request.js');
 const PubSub = require('../helpers/pub_sub.js');
 const randomizeArray = require('../helpers/randomize_array.js');
 
-const Card = function() {
+const Card = function(difficulty) {
   this.baseUrl = 'https://opentdb.com/api.php?amount=25&category=';
   this.currentQuestion = 0;
+  this.difficulty = difficulty;
 
   this.categories = [{
     "name": "movies",
@@ -48,7 +49,8 @@ Card.prototype.bindEvents = function() {
 };
 
 Card.prototype.loadCategoryQuestions = function (category) {
-  const quizUrl = `${this.baseUrl}${category[0]['categoryId']}&type=multiple`;
+  const quizUrl = `${this.baseUrl}${category[0]['categoryId']}&difficulty=${this.difficulty}&type=multiple`;
+  console.log(quizUrl);
   const request = new Request(quizUrl);
 
   request.get()

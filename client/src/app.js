@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const questionView = new QuestionView();
     questionView.bindEvents();
 
-    const card = new Card()
+    const card = new Card(event.target[0].value)
     card.bindEvents();
   });
 

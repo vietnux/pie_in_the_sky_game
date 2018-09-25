@@ -51,5 +51,4 @@ Game.prototype.endTurn = function () {
   PubSub.publish('Game:current-player-change', this.currentPlayer);
 };
 
-
 module.exports = Game;

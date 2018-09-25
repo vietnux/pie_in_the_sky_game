@@ -7,7 +7,6 @@ function randomizeArray(array) {
     // Remove the one we just added to the result list
     array.splice(next, 1);
   }
-
   return result;
 }
 

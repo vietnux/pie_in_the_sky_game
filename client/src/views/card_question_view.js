@@ -10,7 +10,6 @@ QuestionView.prototype.bindEvents = function () {
     const questionData = event.detail;
     this.render(questionData);
   });
-
 };
 
 QuestionView.prototype.render = function (questionData) {
@@ -37,9 +36,6 @@ QuestionView.prototype.render = function (questionData) {
       {
         radioButtons[i].disabled = true;
       };
-      // PubSub.subscribe('Card:is-correct', (event) => {
-      //   console.log(event);
-      // })
       const showResult = createAndAppend('p', null, null, `The correct answer is ${questionData.correctAnswer}`, this.element);
       document.querySelector('#dieButton').disabled = false;
     });
