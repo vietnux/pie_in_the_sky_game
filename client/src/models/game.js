@@ -2,6 +2,7 @@ const PubSub = require('../helpers/pub_sub.js');
 const Board = require('./board.js');
 const Player = require('./player.js');
 const Card = require('./card.js');
+const Timer = require('./timer.js');
 
 const Game = function (player1, player2, board) {
   this.player1 = player1;
@@ -13,6 +14,8 @@ const Game = function (player1, player2, board) {
 
 Game.prototype.startGame = function () {
   this.currentPlayer = this.player1;
+  const Timer = new Timer ();
+  timer.countdown(60);
   this.playTurn();
   PubSub.subscribe(`Card:is-correct`, (event => {
     const result = event.detail;
