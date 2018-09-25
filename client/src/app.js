@@ -22,11 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     startScreenDiv.style.display = "none";
 
-    const board = new Board();
+const board = new Board();
+board.bindEvents();
 
-    const game = new Game(player1, player2, board);
-    game.startGame()
-    console.log('game is started', game);
+const game = new Game(player1, player2, board);
+game.startGame();
 
     const playerView = new PlayerView(game);
     playerView.bindEvents();

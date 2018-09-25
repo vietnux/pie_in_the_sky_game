@@ -36,6 +36,7 @@ QuestionView.prototype.render = function (questionData) {
       {
         radioButtons[i].disabled = true;
       };
+
       const showResult = createAndAppend('p', null, null, `The correct answer is ${questionData.correctAnswer}`, this.element);
       document.querySelector('#dieButton').disabled = false;
     });
