@@ -14,6 +14,8 @@ body {
 
 #start-screen h1 {
   text-align: center;
+  font-size: 3em;
+  margin-top: 1em;
 }
 
 #start-screen-form {
@@ -63,15 +65,16 @@ font-family: 'Graduate', cursive;
   grid-template-columns: 2fr 1fr;
 }
 
+#player1-score-display {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .wrapper #game-view-container {
   grid-area: game;
   display: flex;
   justify-content: space-evenly;
-}
-
-.wrapper #game-view-container h3 {
-  text-align: center;
-  display: inline-block;
+  margin-top: 1.5em;
 }
 
 .wrapper #board-container {
@@ -79,7 +82,9 @@ font-family: 'Graduate', cursive;
 }
 
 .wrapper #player-view-container {
+  margin-top: 2em;
   grid-area: player;
+  text-align: center;
 }
 
 .wrapper #question-card {
