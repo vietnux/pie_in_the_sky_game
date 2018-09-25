@@ -1,9 +1,11 @@
 const PubSub = require('../helpers/pub_sub.js');
+const BoardMap = require('../helpers/board_map.js');
 const Board = require('./board.js');
 const Player = require('./player.js');
 const Card = require('./card.js');
 const Timer = require('./timer.js');
 
+const categories = ['science', 'sports', 'movies', 'history', 'music', 'books'];
 const Game = function (player1, player2, board) {
   this.player1 = player1;
   this.player2 = player2;
@@ -26,19 +28,23 @@ Game.prototype.startGame = function () {
 };
 
 Game.prototype.playTurn = function () {
-  PubSub.subscribe('Player:rollnumber', (event) => {
-  const moves = event.detail;
-  this.board.movesPlayer(this.currentPlayer, moves);
+  PubSub.subscribe('Player:rollnumber', (evt) => {
+  const numberRolled = 'r' + evt.detail;
+  const move_options = BoardMap[this.currentPlayer.position][numberRolled];
+  PubSub.publish('Game:player-choose-move', [move_options, this.currentPlayer]);
+  // this.board.movesPlayer(this.currentPlayer, moves);
 });
 
 };
 
 Game.prototype.checkResult = function (result) {
-  if (result === false) {
+  if (result.isCorrect === false) {
     this.endTurn();
   }
   else {
-    this.currentPlayer.score += 1;
+    const categoryIndex = categories.indexOf(result.category);
+    this.currentPlayer.score.splice(categoryIndex, 1, 1);
+    // console.log(this.currentPlayer.score);
     PubSub.publish('Game:score-change', this.currentPlayer.score);
   }
 };

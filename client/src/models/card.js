@@ -78,7 +78,9 @@ Card.prototype.sortQuestion = function (category) {
   const cardQuestion = category['cards'].pop()
   const allAnswers = cardQuestion.incorrect_answers;
   allAnswers.push(cardQuestion.correct_answer);
-  this.currentQuestion = { question: cardQuestion.question,
+  this.currentQuestion = {
+    category,
+    question: cardQuestion.question,
     correctAnswer: cardQuestion.correct_answer,
     allAnswers: randomizeArray(allAnswers)
   };
@@ -88,7 +90,10 @@ Card.prototype.sortQuestion = function (category) {
 Card.prototype.answerSelected = function (selectedIndex) {
   const correctAnswer = this.currentQuestion.correctAnswer;
   const selectedAnswer = this.currentQuestion.allAnswers[selectedIndex];
-  PubSub.publish('Card:is-correct', selectedAnswer === correctAnswer);
+  PubSub.publish('Card:is-correct', {
+    isCorrect: (selectedAnswer === correctAnswer),
+    category: this.currentQuestion.category.name
+  });
 };
 
 module.exports = Card;

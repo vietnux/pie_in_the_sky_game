@@ -13,10 +13,10 @@ const player1 = new Player("player1");
 const player2 = new Player("player2");
 
 const board = new Board();
+board.bindEvents();
 
 const game = new Game(player1, player2, board);
-game.startGame()
-console.log('game is started', game);
+game.startGame();
 
 const boardView = new BoardView(game);
 boardView.bindEvents();
