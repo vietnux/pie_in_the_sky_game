@@ -4,6 +4,7 @@ const Board = require('./board.js');
 const Player = require('./player.js');
 const Card = require('./card.js');
 
+const categories = ['science', 'sports', 'movies', 'history', 'music', 'books'];
 const Game = function (player1, player2, board) {
   this.player1 = player1;
   this.player2 = player2;
@@ -36,7 +37,9 @@ Game.prototype.checkResult = function (result) {
     this.endTurn();
   }
   else {
-    this.currentPlayer.score += 1;
+    const categoryIndex = categories.indexOf(result.category);
+    this.currentPlayer.score.splice(categoryIndex, 1, 1);
+    console.log(this.currentPlayer.score);
     PubSub.publish('Game:score-change', this.currentPlayer.score);
   }
 };
