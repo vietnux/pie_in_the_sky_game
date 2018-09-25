@@ -15,7 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   startGameForm.addEventListener('submit', (event) => {
     event.preventDefault();
-
+    if (event.target.player4.value && !event.target.player3.value) {
+      document.querySelector('#form-error').textContent = "Please enter a name for Player 3.";
+    } else {
     const player1 = new Player(event.target.player1.value, 'player1');
     const player2 = new Player(event.target.player2.value, 'player2');
     let player3 = null;
@@ -52,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const card = new Card(event.target[0].value)
     card.bindEvents();
+  };
   });
 
 });

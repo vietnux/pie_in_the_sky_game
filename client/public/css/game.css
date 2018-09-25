@@ -29,6 +29,10 @@
   cursor: pointer;
   grid-column-start: 2;
 }
+#form-error {
+  color: red;
+  text-align: center;
+}
 
 #end-screen {
   display: none;
