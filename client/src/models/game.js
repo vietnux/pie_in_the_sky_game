@@ -28,18 +28,19 @@ Game.prototype.playTurn = function () {
   PubSub.subscribe('Player:rollnumber', (event) => {
   const moves = event.detail;
   this.board.movesPlayer(this.currentPlayer, moves);
+  this.timerFinish();
 });
 
 };
 
 Game.prototype.checkResult = function (result) {
   if (result === false) {
-    console.log(result);
     this.endTurn();
   }
   else {
     this.currentPlayer.score += 1;
     PubSub.publish('Game:score-change', this.currentPlayer.score);
+    this.timerFinish();
   }
 };
 
@@ -50,10 +51,17 @@ Game.prototype.endTurn = function () {
   }
   else {
     this.currentPlayer = this.player1;
-    const timer = new Timer (70);
-    timer.countdown();
   };
+  this.timer.endTimer();
+  this.timer = new Timer (70);
+  this.timer.countdown();
   PubSub.publish('Game:current-player-change', this.currentPlayer);
+};
+
+Game.prototype.timerFinish = function () {
+   if (this.timer.timeLeft === 0 ) {
+     this.endTurn();
+   }
 };
 
 
