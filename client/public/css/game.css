@@ -30,6 +30,23 @@
   grid-column-start: 2;
 }
 
+#end-screen {
+  display: none;
+  position: fixed;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 5%;
+  z-index: 2;
+  background-color: rgba(175, 190, 209, 0.95);
+  width: 80%;
+  height: 80%;
+  color: #165D7A;
+  font-family: 'Black Ops One', cursive;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
 .wrapper {
 font-family: 'Graduate', cursive;
   display: grid;
