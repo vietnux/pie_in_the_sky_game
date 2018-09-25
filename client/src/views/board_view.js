@@ -15,8 +15,8 @@ BoardView.prototype.bindEvents = function () {
     this.game.currentPlayer.rollDie();
     dieButton.disabled = true;
   })
-  this.player1Piece = createAndAppend('div', 'playerPiece', 'player1', '', start)
-  this.player2Piece = createAndAppend('div', 'playerPiece', 'player2', '', start)
+  this.player1Piece = createAndAppend('div', 'playerPiece', `${this.game.player1.player}`, '', start)
+  this.player2Piece = createAndAppend('div', 'playerPiece', `${this.game.player2.player}`, '', start)
   this.movePlayer();
   this.printNumber();
 };
@@ -24,7 +24,7 @@ BoardView.prototype.bindEvents = function () {
 BoardView.prototype.movePlayer = function () {
   PubSub.subscribe('Board:move-player', (event) => {
     const player = event.detail;
-    const pieceName = event.detail.name;
+    const pieceName = event.detail.player;
     const position = `#space${event.detail.position}`
     const start = `#space${event.detail.endTurnPosition}`;
     const place = document.querySelector(start);

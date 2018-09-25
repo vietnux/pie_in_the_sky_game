@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
   startGameForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    const player1 = new Player(event.target.player1.value);
-    const player2 = new Player(event.target.player2.value);
+    const player1 = new Player(event.target.player1.value, 'player1');
+    const player2 = new Player(event.target.player2.value, 'player2');
 
     const newGame = new Game(player1, player2);
 
