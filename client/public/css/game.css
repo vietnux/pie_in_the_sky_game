@@ -1,20 +1,28 @@
 #start-screen {
   position: fixed;
   z-index: 2;
-  background-color: azure;
+  background-color: #AFBED1;
   width: 100%;
   height: 100%;
+  color: #165D7A;
+  font-family: 'Black Ops One', cursive;
 }
+
+#start-screen h1 {
+  text-align: center;
+}
+
 #start-screen-form {
+  font-family: 'Graduate', cursive;
+  align: vertical;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  width: 50vw;
-  margin: 20% auto;
+  grid-template-columns: 2fr 1.5fr;
+  grid-template-rows: 0.5fr 0.5fr 0.5fr;
+  width: 50%;
+  margin: 10% auto;
 }
 #start-screen-form input, #start-screen-form label {
-  /* height: 2em; */
-  font-size: 1.5em;
+  font-size: 1.2em;
   margin: 1em;
 }
 #start-screen-form input[type="submit"] {
@@ -23,12 +31,13 @@
 }
 
 .wrapper {
+font-family: 'Graduate', cursive;
   display: grid;
   width: 100%;
   height: 100%;
   grid-template-areas: "game game"
-                      "board player"
-                      "board card";
+  "board player"
+  "board card";
   grid-template-rows: 1fr 2fr 3fr;
   grid-template-columns: 2fr 1fr;
 }
@@ -48,5 +57,11 @@
 }
 
 .wrapper #question-card {
-    grid-area: card;
+  margin-left: .5em;
+  font-family: 'Montserrat', sans-serif;
+  grid-area: card;
+}
+
+.wrapper #question-card ul {
+  list-style-type: none;
 }

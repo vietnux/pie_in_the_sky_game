@@ -23,7 +23,7 @@ Game.prototype.startGame = function () {
   PubSub.subscribe(`Card:is-correct`, (event) => {
     const result = event.detail;
     this.checkResult(result)
-  }))
+  })
   this.timerFinish();
 };
 

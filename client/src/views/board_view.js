@@ -16,7 +16,7 @@ BoardView.prototype.bindEvents = function () {
   dieButton.addEventListener('click', () => {
     this.game.currentPlayer.rollDie();
     // player.rollDie();
-    // dieButton.disabled = true;
+    dieButton.disabled = true;
   });
 
   this.player1Piece = document.querySelector('#p1-piece');
