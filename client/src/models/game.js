@@ -22,13 +22,13 @@ Game.prototype.startGame = function () {
     const result = event.detail;
     this.checkResult(result)
   }))
+  this.timerFinish();
 };
 
 Game.prototype.playTurn = function () {
   PubSub.subscribe('Player:rollnumber', (event) => {
   const moves = event.detail;
   this.board.movesPlayer(this.currentPlayer, moves);
-  this.timerFinish();
 });
 
 };
@@ -40,7 +40,6 @@ Game.prototype.checkResult = function (result) {
   else {
     this.currentPlayer.score += 1;
     PubSub.publish('Game:score-change', this.currentPlayer.score);
-    this.timerFinish();
   }
 };
 
@@ -59,9 +58,12 @@ Game.prototype.endTurn = function () {
 };
 
 Game.prototype.timerFinish = function () {
-   if (this.timer.timeLeft === 0 ) {
-     this.endTurn();
-   }
+  PubSub.subscribe('Timer:currentTime', (evt) => {
+    console.log(evt);
+    if (time === 0 ) {
+      this.endTurn();
+    }
+  });
 };
 
 
