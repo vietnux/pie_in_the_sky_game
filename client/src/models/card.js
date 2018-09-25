@@ -91,7 +91,7 @@ Card.prototype.answerSelected = function (selectedIndex) {
   const correctAnswer = this.currentQuestion.correctAnswer;
   const selectedAnswer = this.currentQuestion.allAnswers[selectedIndex];
   PubSub.publish('Card:is-correct', {
-    isCorrect: selectedAnswer === correctAnswer,
+    isCorrect: (selectedAnswer === correctAnswer),
     category: this.currentQuestion.category.name
   });
 };

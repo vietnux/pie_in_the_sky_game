@@ -36,7 +36,7 @@ BoardView.prototype.bindEvents = function () {
           this.player2Piece.style.top = BoardMap[evt.detail]['top']+35 + 'px';
         }
         const category = document.querySelector(`#${evt.detail}`).classList.value;
-        console.log(category);
+        // console.log(category);
         PubSub.publish('BoardView:category', category);
 
       });

@@ -33,13 +33,13 @@ Game.prototype.playTurn = function () {
 };
 
 Game.prototype.checkResult = function (result) {
-  if (result === false) {
+  if (result.isCorrect === false) {
     this.endTurn();
   }
   else {
     const categoryIndex = categories.indexOf(result.category);
     this.currentPlayer.score.splice(categoryIndex, 1, 1);
-    console.log(this.currentPlayer.score);
+    // console.log(this.currentPlayer.score);
     PubSub.publish('Game:score-change', this.currentPlayer.score);
   }
 };
