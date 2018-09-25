@@ -45,26 +45,26 @@
 }
 
 /* science */
-ul > :nth-child(1) {
+.segments > :nth-child(1) {
   background-color: #F8333C;
 }
 /* sports */
-ul > :nth-child(2) {
+.segments > :nth-child(2) {
   background-color: #FCAB10;
 }
 /* movies */
-ul > :nth-child(3) {
+.segments > :nth-child(3) {
   background-color: #44AF69;
 }
 /* history */
-ul > :nth-child(4) {
+.segments > :nth-child(4) {
   background-color: #2B9EB3;
 }
 /* music */
-ul > :nth-child(5) {
+.segments > :nth-child(5) {
   background-color: #6A4699;
 }
 /* books */
-ul > :nth-child(6) {
+.segments > :nth-child(6) {
   background-color: #840032;
 }
