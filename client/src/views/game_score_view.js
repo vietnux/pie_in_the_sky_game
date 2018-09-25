@@ -14,9 +14,9 @@ GameScoreView.prototype.bindEvents = function () {
 
 GameScoreView.prototype.updateScores = function () {
   const player1ScoreDisplay = document.querySelector('#player1-score-display');
-  player1ScoreDisplay.textContent = `${this.game.player1.name} score: ${this.game.player1.score}`;
+  player1ScoreDisplay.textContent = `${this.game.player1.name} score: `;
   const player2ScoreDisplay = document.querySelector('#player2-score-display');
-  player2ScoreDisplay.textContent = `${this.game.player2.name} score: ${this.game.player2.score}`;
+  player2ScoreDisplay.textContent = `${this.game.player2.name} score: `;
   this.renderScore(this.game.player1.score, player1ScoreDisplay);
   this.renderScore(this.game.player2.score, player2ScoreDisplay);
 };
@@ -34,7 +34,6 @@ GameScoreView.prototype.renderScore = function (scores, container) {
       segment.style.visibility = 'hidden';
     }
   });
-
 };
 
 module.exports = GameScoreView;
