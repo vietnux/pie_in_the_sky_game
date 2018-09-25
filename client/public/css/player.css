@@ -1,3 +1,22 @@
 #player-view-container {
   text-align: center;
 }
+#instructions-drop-btn:after {
+  content: "\25BE";
+  position: relative;
+  left: 10px;
+}
+#instructions-drop-btn {
+  cursor: pointer;
+}
+#instructions-dropdown {
+  position: fixed;
+  overflow: scroll;
+  z-index: 1;
+  height: 500px;
+  background-color: white;
+  margin: 0 0.3em;
+}
+.hidden {
+  display: none;
+}
