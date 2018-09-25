@@ -17,7 +17,7 @@ const Game = function (player1, player2, board) {
 
 Game.prototype.startGame = function () {
   this.currentPlayer = this.player1;
-  this.timer = new Timer (70);
+  this.timer = new Timer (50);
   this.timer.countdown();
   this.playTurn();
   PubSub.subscribe(`Card:is-correct`, (event) => {
