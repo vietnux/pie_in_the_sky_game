@@ -47,6 +47,10 @@ Game.prototype.checkResult = function (result) {
     // console.log(this.currentPlayer.score);
     PubSub.publish('Game:score-change', this.currentPlayer.score);
   };
+  const playerScore = this.currentPlayer.score.reduce((a, b) => a + b, 0);
+  if (playerScore === 6) {
+    this.endGame();
+  }
 };
 
 Game.prototype.endTurn = function () {
@@ -70,6 +74,11 @@ Game.prototype.timerFinish = function () {
       this.endTurn();
     }
   });
+};
+
+Game.prototype.endGame = function () {
+  PubSub.publish('Game:end-game', this);
+  this.timer.endTimer();
 };
 
 

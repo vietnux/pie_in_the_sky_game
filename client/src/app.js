@@ -6,6 +6,7 @@ const BoardView = require('./views/board_view.js');
 const PlayerView = require('./views/player_view.js');
 const QuestionView = require('./views/card_question_view.js');
 const GameScoreView = require('./views/game_score_view.js');
+const ResultsView = require('./views/results_view.js');
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -39,6 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const questionView = new QuestionView();
     questionView.bindEvents();
+
+    const resultsView = new ResultsView();
+    resultsView.bindEvent();
 
     const card = new Card(event.target[0].value)
     card.bindEvents();
