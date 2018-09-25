@@ -50,7 +50,6 @@ Card.prototype.bindEvents = function() {
 
 Card.prototype.loadCategoryQuestions = function (category) {
   const quizUrl = `${this.baseUrl}${category[0]['categoryId']}&difficulty=${this.difficulty}&type=multiple`;
-  console.log(quizUrl);
   const request = new Request(quizUrl);
 
   request.get()

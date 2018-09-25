@@ -175,12 +175,13 @@
 
 }
 .board-piece {
+  display: none;
   position: absolute;
   z-index: 1;
-  top: 5px;
-  left: 5px;
-  height: 40px;
-  width: 40px;
+  top: 4px;
+  left: 4px;
+  height: 34px;
+  width: 34px;
   border-radius:50%;
   background-color: black;
   transition: all 0.4s linear;
@@ -188,8 +189,18 @@
 }
 #p2-piece {
   background-color: white;
-  top: 35px;
-  left: 35px;
+  top: 42px;
+  left: 42px;
+}
+#p3-piece {
+  background-color: lightgray;
+  top: 3px;
+  left: 42px;
+}
+#p4-piece {
+  background-color: darkgray;
+  top: 42px;
+  left: 3px;
 }
 .highlighted-move {
   color: white;

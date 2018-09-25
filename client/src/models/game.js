@@ -6,9 +6,23 @@ const Card = require('./card.js');
 const Timer = require('./timer.js');
 
 const categories = ['science', 'sports', 'movies', 'history', 'music', 'books'];
-const Game = function (player1, player2, board) {
+const Game = function (player1, player2, player3, player4, board) {
   this.player1 = player1;
   this.player2 = player2;
+  this.player3 = player3;
+  this.player4 = player4;
+  this.players = {};
+  this.players[this.player1.name] = this.player2;
+  if (this.player4) {
+    this.players[this.player4.name] = this.player1;
+    this.players[this.player3.name] = this.player4;
+    this.players[this.player2.name] = this.player3;
+  } else if (this.player3) {
+    this.players[this.player3.name] = this.player1;
+    this.players[this.player2.name] = this.player3;
+  } else {
+    this.players[this.player2.name] = this.player1;
+  }
   this.board = board;
   this.currentPlayer = null;
   this.currentCategory = null;
@@ -16,6 +30,8 @@ const Game = function (player1, player2, board) {
 };
 
 Game.prototype.startGame = function () {
+  const number_of_players = Object.keys(this.players).length;
+  this.board.setBoardPieces(number_of_players);
   this.currentPlayer = this.player1;
   this.timer = new Timer (70);
   this.timer.countdown();
@@ -54,13 +70,7 @@ Game.prototype.checkResult = function (result) {
 };
 
 Game.prototype.endTurn = function () {
-
-  if (this.currentPlayer.name === this.player1.name) {
-    this.currentPlayer = this.player2;
-  }
-  else {
-    this.currentPlayer = this.player1;
-  };
+  this.currentPlayer = this.players[this.currentPlayer.name];
   this.timer.endTimer();
   this.timer = new Timer (70);
   this.timer.countdown();

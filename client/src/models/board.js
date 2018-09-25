@@ -17,6 +17,13 @@ Board.prototype.bindEvents = function () {
 
 };
 
+Board.prototype.setBoardPieces = function (number_of_players) {
+  document.querySelector('#p1-piece').style.display = 'block';
+  document.querySelector('#p2-piece').style.display = 'block';
+  if (number_of_players>3) document.querySelector('#p4-piece').style.display = 'block';
+  if (number_of_players>2) document.querySelector('#p3-piece').style.display = 'block';
+};
+
 Board.prototype.highlightSquares = function (squares, player) {
   for (move_option of squares) {
     const highlightedSquare = document.querySelector(`#${move_option}`);
@@ -26,6 +33,7 @@ Board.prototype.highlightSquares = function (squares, player) {
     highlightedSquare.onclick = function () {
       clearHighlightedSquares();
       PubSub.publish('Board:player-move', this.id);
+      // this.board.movesPlayer(this.currentPlayer, moves);
     };
   };
 };
@@ -52,16 +60,17 @@ clearHighlightedSquares = function () {
 //   };
 // };
 
-Board.prototype.movesPlayer = function (player, dieAmount) {
-  for (i = 0; i < dieAmount; i++) {
-    player.position += 1;
-    if (player.position === 24) {
-      player.position = 0;
-    };
-    PubSub.publish('Board:move-player', player);
-    player.endTurnPosition = player.position;
-  };
-  PubSub.publish('Board:final-position', player.endTurnPosition)
-};
+// Board.prototype.movesPlayer = function (player, dieAmount) {
+//   for (i = 0; i < dieAmount; i++) {
+//    player.position += 1;
+//    if (player.position === 24) {
+//      player.position = 0;
+//    };
+//    PubSub.publish('Board:move-player', player);
+//    player.endTurnPosition = player.position;
+//  };
+//  PubSub.publish('Board:final-position', player.endTurnPosition)
+// };
+
 
 module.exports = Board;
