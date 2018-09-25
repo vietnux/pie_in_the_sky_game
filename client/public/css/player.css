@@ -1,3 +1,28 @@
 #player-view-container {
   text-align: center;
 }
+
+#diePlace {
+  display: inline-block;
+  text-align: center;
+  background-color: white;
+  height: 70px;
+  width: 70px;
+  border: 1px solid gray;
+  border-radius: 8px;
+  font-size: 45px;
+  line-height: 70px;
+  box-shadow: 0 1px 2px gray, 0 2px 2px rgba(0, 0, 0, .2);
+}
+
+#dieButton {
+  border-radius: 6px;
+  border: none;
+  color: black;
+  margin-top: 20px;
+  text-transform: uppercase;
+  width: 70px;
+  height: 20px;
+  cursor: pointer;
+  text-align: center;
+}

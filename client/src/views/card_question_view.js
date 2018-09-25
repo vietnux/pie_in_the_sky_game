@@ -20,11 +20,12 @@ QuestionView.prototype.render = function (questionData) {
   // question.innerHTML = questionData.question;
   const answers = createAndAppend('ul', null, null, null, this.element);
   questionData['allAnswers'].forEach((answer, index) => {
+    const answerText = he.decode(answer);
     const item = createAndAppend('li', null, null, null, answers);
     const radio = createAndAppend('input', null, null, null, item);
     radio.id = `answer-${index}`
     radio.type = 'radio';
-    radio.name = 'answer';
+    radio.name = 'answerText';
     radio.value = index;
 
     const label = createAndAppend('label', null, null, null, item);
@@ -38,8 +39,8 @@ QuestionView.prototype.render = function (questionData) {
       {
         radioButtons[i].disabled = true;
       };
-
-      const showResult = createAndAppend('p', null, null, `The correct answer is ${questionData.correctAnswer}`, this.element);
+      const correctAnswerText = he.decode(questionData.correctAnswer);
+      const showResult = createAndAppend('p', null, null, `The correct answer is ${correctAnswerText}`, this.element);
       document.querySelector('#dieButton').disabled = false;
     });
   });

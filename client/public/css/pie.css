@@ -1,6 +1,5 @@
 
 .scaler-container {
-  background: rgb(29, 39, 57);
   background: gray;
   border-radius: 50%;
   bottom: 26px;
@@ -9,7 +8,6 @@
   left: 26px;
   pointer-events: none;
   display: inline-block;
-  position: relative;
   width: auto;
 }
 
@@ -35,7 +33,7 @@
 .segment {
   -webkit-transform-origin: 0 100%;
   background: rgb(227, 234, 249);
-  box-shadow: 0 0 0 10px rgba(29, 39, 57, .3) inset;
+  box-shadow: 0 0 0 6px rgba(29, 39, 57, .3) inset;
   height: 50%;
   overflow: hidden;
   position: absolute;
@@ -44,6 +42,10 @@
   width: 50%;
 }
 
+/* movies */
+.segments > :nth-child(3) {
+  background-color: #78EDB3;
+}
 /* science */
  .segments > :nth-child(1) {
   background-color: #F99F3E;
@@ -51,10 +53,6 @@
 /* sports */
   .segments > :nth-child(2) {
   background-color: #FDE74C;
-}
-/* movies */
-  .segments > :nth-child(3) {
-  background-color: #89FFD1;
 }
 /* history */
   .segments > :nth-child(4) {

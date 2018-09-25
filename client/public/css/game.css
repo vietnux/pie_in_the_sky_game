@@ -1,5 +1,5 @@
 body {
-  background-color: #F2FDFF;
+  background-color: #E5F6F9;
 }
 
 #start-screen {
@@ -67,6 +67,11 @@ font-family: 'Graduate', cursive;
   grid-area: game;
   display: flex;
   justify-content: space-evenly;
+}
+
+.wrapper #game-view-container h3 {
+  text-align: center;
+  display: inline-block;
 }
 
 .wrapper #board-container {
