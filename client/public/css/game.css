@@ -13,7 +13,6 @@ body {
   height: 60%;
   color: #68534B;
   font-family: 'Black Ops One', cursive;
-
   box-shadow: 0 0px 100px grey, 0 0px 100px rgba(0, 0, 0, .1);
 }
 
@@ -62,7 +61,7 @@ body {
 }
 
 .wrapper {
-font-family: 'Graduate', cursive;
+  font-family: 'Graduate', cursive;
   display: grid;
   width: 80%;
   height: 80%;
@@ -79,6 +78,13 @@ font-family: 'Graduate', cursive;
 #player1-score-display {
   display: inline-block;
   vertical-align: middle;
+  mark: white;
+}
+
+#player2-score-display {
+  display: inline-block;
+  vertical-align: middle;
+  mark: black;
 }
 
 .wrapper #game-view-container {
@@ -102,7 +108,7 @@ font-family: 'Graduate', cursive;
 .wrapper #question-card {
   grid-area: card;
   margin-left: 1em;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Graduate', cursive;
   line-height: 1.5em;
 }
 

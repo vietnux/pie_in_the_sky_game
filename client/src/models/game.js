@@ -13,6 +13,7 @@ const Game = function (player1, player2, board) {
   this.currentPlayer = null;
   this.currentCategory = null;
   this.timer = null;
+  // this.winSound = { url : "./sounds/win.mp3" };
 };
 
 Game.prototype.startGame = function () {
@@ -79,6 +80,7 @@ Game.prototype.timerFinish = function () {
 Game.prototype.endGame = function () {
   PubSub.publish('Game:end-game', this);
   this.timer.endTimer();
+  // playSound(this.winSound);
 };
 
 
