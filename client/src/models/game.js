@@ -1,4 +1,5 @@
 const PubSub = require('../helpers/pub_sub.js');
+const BoardMap = require('../helpers/board_map.js');
 const Board = require('./board.js');
 const Player = require('./player.js');
 const Card = require('./card.js');
@@ -21,17 +22,17 @@ Game.prototype.startGame = function () {
 };
 
 Game.prototype.playTurn = function () {
-  PubSub.subscribe('Player:rollnumber', (event) => {
-  const moves = event.detail;
-  console.log('moves', moves);
-  this.board.movesPlayer(this.currentPlayer, moves);
+  PubSub.subscribe('Player:rollnumber', (evt) => {
+  const numberRolled = 'r' + evt.detail;
+  const move_options = BoardMap[this.currentPlayer.position][numberRolled];
+  PubSub.publish('Game:player-choose-move', [move_options, this.currentPlayer]);
+  // this.board.movesPlayer(this.currentPlayer, moves);
 });
 
 };
 
 Game.prototype.checkResult = function (result) {
   if (result === false) {
-    console.log(result);
     this.endTurn();
   }
   else {
