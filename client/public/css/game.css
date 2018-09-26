@@ -169,6 +169,19 @@ body {
   mark: black;
 }
 
+#game-view-container .blinkPlayer {
+  -webkit-animation: 1s blink step-end infinite;
+}
+
+@-webkit-keyframes "blink" {
+  from, to {
+    color: #F96377;
+  }
+  50% {
+    color: black;
+  }
+}
+
 .wrapper #game-view-container {
   grid-area: game;
   display: flex;

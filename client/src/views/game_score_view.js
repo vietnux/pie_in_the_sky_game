@@ -16,7 +16,15 @@ GameScoreView.prototype.updateScores = function () {
   for (player in this.game.players) {
     const scoreDisplay = document.querySelector(`#${this.game.players[player].player}-score-display`);
     scoreDisplay.textContent = this.game.players[player].name;
+    console.log('has score', scoreDisplay);
+    if (this.game.players[player] === this.game.currentPlayer) {
+      scoreDisplay.classList.add('blinkPlayer');
+    }
+    else {
+      scoreDisplay.classList.remove('blinkPlayer');
+    }
     this.renderScore(this.game.players[player].score, scoreDisplay);
+    this.changeBlinkingPlayer();
   }
   // const player1ScoreDisplay = document.querySelector('#player1-score-display');
   // player1ScoreDisplay.textContent = `${this.game.player1.name} score: `;
@@ -31,6 +39,23 @@ GameScoreView.prototype.updateScores = function () {
   // this.renderScore(this.game.player3.score, player3ScoreDisplay);
   // this.renderScore(this.game.player4.score, player4ScoreDisplay);
 };
+
+GameScoreView.prototype.changeBlinkingPlayer = function () {
+  PubSub.subscribe('Game:current-player-change', (event) => {
+    for (player in this.game.players) {
+      const scoreDisplay = document.querySelector(`#${this.game.players[player].player}-score-display`);
+      scoreDisplay.textContent = this.game.players[player].name;
+      if (this.game.players[player] === event.detail) {
+        scoreDisplay.classList.add('blinkPlayer');
+      }
+      else {
+        scoreDisplay.classList.remove('blinkPlayer');
+      }
+      this.renderScore(this.game.players[player].score, scoreDisplay);
+    };
+  });
+};
+
 
 GameScoreView.prototype.renderScore = function (scores, container) {
   const scalerContainer = createAndAppend('div', 'scaler-container', null, null, container);
