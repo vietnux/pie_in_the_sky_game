@@ -2,6 +2,7 @@ const Game = require('./models/game.js');
 const Board = require('./models/board.js');
 const Player = require('./models/player.js');
 const Card = require('./models/card.js');
+const HighScore = require('./models/highscore.js');
 const BoardView = require('./views/board_view.js');
 const PlayerView = require('./views/player_view.js');
 const QuestionView = require('./views/card_question_view.js');
@@ -58,6 +59,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const card = new Card(event.target[0].value)
     card.bindEvents();
+
+    const highScoreUrl = 'http://localhost:3000/api/games'
+    const highScore = new HighScore(highScoreUrl);
+    highScore.getNames();
+
   };
   });
 

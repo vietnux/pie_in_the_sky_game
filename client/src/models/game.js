@@ -1,6 +1,7 @@
 const PubSub = require('../helpers/pub_sub.js');
 const BoardMap = require('../helpers/board_map.js');
 const Board = require('./board.js');
+const HighScore = require('./highscore.js')
 const Player = require('./player.js');
 const Card = require('./card.js');
 const Timer = require('./timer.js');
@@ -30,6 +31,9 @@ const Game = function (player1, player2, player3, player4, board) {
 };
 
 Game.prototype.startGame = function () {
+  const highScoreUrl = 'http://localhost:3000/api/games'
+  const highScore = new HighScore(highScoreUrl);
+  highScore.getNames();
   const number_of_players = Object.keys(this.players).length;
   this.board.setBoardPieces(number_of_players);
   this.currentPlayer = this.player1;
