@@ -124,7 +124,7 @@ body {
 
 #end-screen button {
   font-family: 'Graduate', cursive;
-  padding: 1em;
+  padding: .5em;
   font-size: 0.3em;
   border-radius: 2%;
   text-decoration: none;
