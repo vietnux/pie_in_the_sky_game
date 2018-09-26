@@ -23,14 +23,18 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelector('#form-error').textContent = "Please enter a name for Player 3.";
     } else {
     const player1 = new Player(event.target.player1.value, 'player1');
+    player1.colour = "darkblue";
     const player2 = new Player(event.target.player2.value, 'player2');
+    player2.colour = "black";
     let player3 = null;
     let player4 = null;
     if (event.target.player3.value) {
       player3 = new Player(event.target.player3.value, 'player3');
+      player3.colour = "darkgreen";
     };
     if (event.target.player4.value) {
       player4 = new Player(event.target.player4.value, 'player4');
+      player4.colour = "darkred";
     };
 
     // startScreenDiv.style.display = "none";
