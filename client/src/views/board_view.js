@@ -21,6 +21,8 @@ BoardView.prototype.bindEvents = function () {
 
   this.player1Piece = document.querySelector('#p1-piece');
   this.player2Piece = document.querySelector('#p2-piece');
+  this.player3Piece = document.querySelector('#p3-piece');
+  this.player4Piece = document.querySelector('#p4-piece');
   // this.movePlayer();
   this.printNumber();
 
@@ -29,12 +31,18 @@ BoardView.prototype.bindEvents = function () {
         this.game.currentPlayer.position = evt.detail;
         let activePiece = null;
         if (this.game.currentPlayer === this.game.player1) {
-          this.player1Piece.style.left = BoardMap[evt.detail]['left']+5 + 'px';
-          this.player1Piece.style.top = BoardMap[evt.detail]['top']+5 + 'px';
+          this.player1Piece.style.left = BoardMap[evt.detail]['left']+4 + 'px';
+          this.player1Piece.style.top = BoardMap[evt.detail]['top']+4 + 'px';
+        } else if (this.game.currentPlayer === this.game.player2)  {
+          this.player2Piece.style.left = BoardMap[evt.detail]['left']+42 + 'px';
+          this.player2Piece.style.top = BoardMap[evt.detail]['top']+42 + 'px';
+        } else if (this.game.currentPlayer === this.game.player3) {
+          this.player3Piece.style.left = BoardMap[evt.detail]['left']+42 + 'px';
+          this.player3Piece.style.top = BoardMap[evt.detail]['top']+4 + 'px';
         } else {
-          this.player2Piece.style.left = BoardMap[evt.detail]['left']+35 + 'px';
-          this.player2Piece.style.top = BoardMap[evt.detail]['top']+35 + 'px';
-        }
+          this.player4Piece.style.left = BoardMap[evt.detail]['left']+4 + 'px';
+          this.player4Piece.style.top = BoardMap[evt.detail]['top']+42 + 'px';
+        };
         const category = document.querySelector(`#${evt.detail}`).classList.value;
         // console.log(category);
         PubSub.publish('BoardView:category', category);

@@ -6,8 +6,6 @@ const Player = function (name, player) {
 
   this.score = [0, 0, 0, 0, 0, 0];
   this.position = 'a1';
-
-  this.endTurnPosition = 0;
   this.player = player;
 };
 

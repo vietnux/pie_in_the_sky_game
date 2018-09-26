@@ -19,18 +19,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   startGameForm.addEventListener('submit', (event) => {
     event.preventDefault();
-
+    if (event.target.player4.value && !event.target.player3.value) {
+      document.querySelector('#form-error').textContent = "Please enter a name for Player 3.";
+    } else {
     const player1 = new Player(event.target.player1.value, 'player1');
     const player2 = new Player(event.target.player2.value, 'player2');
-
-    const newGame = new Game(player1, player2);
+    let player3 = null;
+    let player4 = null;
+    if (event.target.player3.value) {
+      player3 = new Player(event.target.player3.value, 'player3');
+    };
+    if (event.target.player4.value) {
+      player4 = new Player(event.target.player4.value, 'player4');
+    };
 
     startScreenDiv.style.display = "none";
 
     const board = new Board();
     board.bindEvents();
 
-    const game = new Game(player1, player2, board);
+    const game = new Game(player1, player2, player3, player4, board);
     game.startGame();
 
     const playerView = new PlayerView(game);
@@ -50,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const card = new Card(event.target[0].value)
     card.bindEvents();
+  };
   });
 
 });

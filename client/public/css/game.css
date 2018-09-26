@@ -29,21 +29,28 @@
   cursor: pointer;
   grid-column-start: 2;
 }
+
+#form-error {
+  color: red;
+  text-align: center;
+}
+#instructions {
+  grid-column: 1 / span 2;
+  font-size: 0.9em;
+}
+#instructions-drop-btn {
+  cursor: pointer;
+}
 #instructions-drop-btn:after {
   content: "\25BE";
   position: relative;
   left: 10px;
 }
-#instructions-drop-btn {
-  cursor: pointer;
-}
 #instructions-dropdown {
-  position: fixed;
-  bottom: 10vh;
-  width: 60vw;
+  /* width: 60vw; */
   overflow: scroll;
   z-index: 1;
-  height: 200px;
+  max-height: 100px;
 }
 .hidden {
   display: none;
