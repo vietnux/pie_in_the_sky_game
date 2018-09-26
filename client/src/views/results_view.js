@@ -28,10 +28,7 @@ ResultsView.prototype.render = function (section, scores) {
 
   Highcharts.chart(section, {
       chart: {
-          type: 'bar',
-          style: {
-            fontFamily: 'Titillium Web', sans-serif;
-        }
+          type: 'bar'
       },
       title: {
           text: 'High Score'
