@@ -38,6 +38,8 @@ const createRouter = function (collection) {
 });
 
 
+
+
 router.put('/:id', (req, res) => {
   console.log(req);
   const id = req.params.id;
@@ -59,6 +61,7 @@ router.put('/:id', (req, res) => {
       res.json({ status: 500, error: err });
     });
   });
+
   router.delete('/:id', (req, res) => {
     const id = req.params.id;
     collection

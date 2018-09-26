@@ -36,7 +36,7 @@ HighScore.prototype.postPlayer = function (player) {
   const request = new Request(this.url);
   const entry = {
     "name" : `${player}`,
-    "win" : 1
+    "wins" : 1
   }
   request.post(entry)
     .then(() => {
