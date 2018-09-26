@@ -62,7 +62,7 @@ Game.prototype.endTurn = function () {
     this.currentPlayer = this.player1;
   };
   this.timer.endTimer();
-  this.timer = new Timer (70);
+  this.timer = new Timer (50);
   this.timer.countdown();
   PubSub.publish('Game:current-player-change', this.currentPlayer);
 };
