@@ -1,9 +1,9 @@
 const PubSub = require('../helpers/pub_sub.js');
 
-const Player = function (name, player) {
+const Player = function (name, id, player) {
   this.icon = null;
   this.name = name;
-
+  this.id = id;
   this.score = [0, 0, 0, 0, 0, 0];
   this.position = 'a1';
   this.player = player;
