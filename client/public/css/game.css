@@ -58,6 +58,10 @@ body {
   cursor: pointer;
   grid-column-start: 2;
 }
+#start-screen-form select {
+  position: relative;
+  top: 8px;
+}
 
 #form-error {
   color: red;
@@ -209,6 +213,10 @@ body {
   font-size: 1.5em;
   line-height: 1.5em;
 }
+.wrapper #player-view-container button {
+  display: block;
+  margin: 0 auto;
+}
 
 .wrapper #question-card {
   grid-area: card;
@@ -219,4 +227,5 @@ body {
 
 .wrapper #question-card ul {
   list-style-type: none;
+  margin: 10px 0;
 }

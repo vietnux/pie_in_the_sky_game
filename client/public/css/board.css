@@ -253,3 +253,11 @@
 .books {
   background-color: #F96377;
 }
+
+#categoryLegend h3 {
+  margin: 10px 0;
+}
+#categoryLegend div {
+  padding: 2px;
+  margin: 3px 0;
+}
