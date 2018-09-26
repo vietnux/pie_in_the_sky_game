@@ -43,13 +43,11 @@ GameScoreView.prototype.changeBlinkingPlayer = function () {
   });
 };
 
-
 GameScoreView.prototype.renderScore = function (scores, colour, container) {
   const scalerContainer = createAndAppend('div', 'scaler-container', null, null, container);
   scalerContainer.style.backgroundColor = colour;
   const scaler = createAndAppend('div', 'scaler', null, null, scalerContainer);
   const list = createAndAppend('ul', 'segments', null, null, scaler);
-
 
   scores.forEach((value, index) => {
     const segment = createAndAppend('li', 'segment', null, null, list);

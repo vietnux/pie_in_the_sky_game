@@ -3,7 +3,6 @@ const PubSub = require('../helpers/pub_sub.js');
 const Highcharts = require('highcharts');
 
 const ResultsView = function () {
-
 }
 
 ResultsView.prototype.bindEvent = function () {
@@ -20,9 +19,6 @@ ResultsView.prototype.bindEvent = function () {
      this.render(highScoresContainer, allScores)
   })
 };
-
-
-
 
 ResultsView.prototype.render = function (section, scores) {
 
