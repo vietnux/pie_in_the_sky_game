@@ -142,14 +142,28 @@ body {
 }
 
 #player1-score-display {
-  font-size: 2em;
+  font-size: 1.2em;
   display: inline-block;
   vertical-align: middle;
   mark: white;
 }
 
 #player2-score-display {
-  font-size: 2em;
+  font-size: 1.2em;
+  display: inline-block;
+  vertical-align: middle;
+  mark: black;
+}
+
+#player3-score-display {
+  font-size: 1.2em;
+  display: inline-block;
+  vertical-align: middle;
+  mark: black;
+}
+
+#player4-score-display {
+  font-size: 1.2em;
   display: inline-block;
   vertical-align: middle;
   mark: black;
