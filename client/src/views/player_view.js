@@ -14,10 +14,6 @@ PlayerView.prototype.bindEvents = function () {
   });
   this.setTimer();
 
-  document.querySelector('#instructions-drop-btn').addEventListener('click', ()=> {
-    console.log('fired');
-    document.querySelector('#instructions-dropdown').classList.toggle('hidden');
-  });
 };
 
 PlayerView.prototype.setTimer = function () {
