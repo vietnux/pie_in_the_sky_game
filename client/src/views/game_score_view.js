@@ -16,7 +16,6 @@ GameScoreView.prototype.updateScores = function () {
   for (player in this.game.players) {
     const scoreDisplay = document.querySelector(`#${this.game.players[player].player}-score-display`);
     scoreDisplay.textContent = this.game.players[player].name;
-    console.log('has score', scoreDisplay);
     if (this.game.players[player] === this.game.currentPlayer) {
       scoreDisplay.classList.add('blinkPlayer');
     }
