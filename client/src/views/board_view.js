@@ -21,7 +21,12 @@ BoardView.prototype.bindEvents = function () {
   this.player2Piece.style.backgroundColor = this.game.player2.colour;
   this.player3Piece = document.querySelector('#p3-piece');
   if (this.game.player3) this.player3Piece.style.backgroundColor = this.game.player3.colour;
+  this.player4Piece = document.querySelector('#p4-piece');
   if (this.game.player4) this.player4Piece.style.backgroundColor = this.game.player4.colour;
+
+
+
+
   this.printNumber();
 
       PubSub.subscribe('Board:player-move', (evt) => {
@@ -42,7 +47,6 @@ BoardView.prototype.bindEvents = function () {
           this.player4Piece.style.top = BoardMap[evt.detail]['top']+42 + 'px';
         };
         const category = document.querySelector(`#${evt.detail}`).classList.value;
-        // console.log(category);
         PubSub.publish('BoardView:category', category);
 
       });

@@ -61,7 +61,6 @@ Game.prototype.checkResult = function (result) {
   else {
     const categoryIndex = categories.indexOf(result.category);
     this.currentPlayer.score.splice(categoryIndex, 1, 1);
-    // console.log(this.currentPlayer.score);
     PubSub.publish('Game:score-change', this.currentPlayer.score);
   };
   const playerScore = this.currentPlayer.score.reduce((a, b) => a + b, 0);

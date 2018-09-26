@@ -17,7 +17,6 @@ QuestionView.prototype.render = function (questionData) {
   this.element.innerHTML = '';
   const questionText = he.decode(questionData.question);
   const question = createAndAppend('div', null, null, questionText, this.element);
-  // question.innerHTML = questionData.question;
   const answers = createAndAppend('ul', null, null, null, this.element);
   questionData['allAnswers'].forEach((answer, index) => {
     const answerText = he.decode(answer);
