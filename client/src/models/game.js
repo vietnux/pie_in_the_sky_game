@@ -64,7 +64,7 @@ Game.prototype.checkResult = function (result) {
     PubSub.publish('Game:score-change', this.currentPlayer.score);
   };
   const playerScore = this.currentPlayer.score.reduce((a, b) => a + b, 0);
-  if (playerScore === 1) {
+  if (playerScore === 6) {
     this.endGame();
   }
 };
