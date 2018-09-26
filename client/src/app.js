@@ -13,6 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const startGameForm = document.querySelector("#start-screen-form");
   const startScreenDiv = document.querySelector('#start-screen');
 
+  document.querySelector('#instructions-drop-btn').addEventListener('click', ()=> {
+    document.querySelector('#instructions-dropdown').classList.toggle('hidden');
+  });
+
   startGameForm.addEventListener('submit', (event) => {
     event.preventDefault();
 

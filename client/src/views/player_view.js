@@ -13,6 +13,7 @@ PlayerView.prototype.bindEvents = function () {
     currentPlayerDisplay.textContent = `It's your turn ${evt.detail.name}!`;
   });
   this.setTimer();
+
 };
 
 PlayerView.prototype.setTimer = function () {
