@@ -62,7 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const highScoreUrl = 'http://localhost:3000/api/games'
     const highScore = new HighScore(highScoreUrl);
-    highScore.getNames();
+    highScore.bindEvents();
+
+
 
   };
   });
