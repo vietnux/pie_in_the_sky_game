@@ -19,9 +19,10 @@
   },
   "homepage": "https://github.com/self-unit/pie_in_the_sky#readme",
   "dependencies": {
-    "npm": "^6.4.1",
     "express": "^4.16.3",
-    "mongodb": "^3.0.7"
+    "highcharts": "^6.1.4",
+    "mongodb": "^3.0.7",
+    "npm": "^6.4.1"
   },
   "devDependencies": {
     "mocha": "^5.2.0",

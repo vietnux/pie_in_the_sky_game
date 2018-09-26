@@ -16,7 +16,7 @@ HighScore.prototype.getNames = function () {
   request.get()
   .then((entries) => {
      this.currentEntries = entries
-     console.log(this.currentEntries);
+     PubSub.publish('HighScore:allscores', this.currentEntries)
   })
 };
 
@@ -57,6 +57,7 @@ HighScore.prototype.updatePlayer = function (player) {
      this.getNames()
    });
 };
+
 
 
 module.exports = HighScore;
