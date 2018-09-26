@@ -1,15 +1,44 @@
+body {
+  background-color: #E5F6F9;
+}
+
 #start-screen {
   position: fixed;
   z-index: 2;
-  background-color: #AFBED1;
-  width: 100%;
-  height: 100%;
-  color: #165D7A;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 1%;
+  background-color: rgba(197, 192, 229, 0.95);
+  width: 80%;
+  height: 90%;
+  color: #68534B;
   font-family: 'Black Ops One', cursive;
+  box-shadow: 0 0px 100px grey, 0 0px 100px rgba(0, 0, 0, .1);
+  border-radius: 2%;
+}
+
+#start-screen.end {
+  transition: all 1s ease-in-out;
+  visibility: hidden;
+  z-index: 0;
+  position: fixed;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 7%;
+  background-color: rgba(197, 192, 229, 0.0);
+  width: 80%;
+  height: 60%;
+  color: rgba(104, 83, 75, 0.0);
+  box-shadow: none;
+  opacity: 0;
+  border-radius: 2%;
 }
 
 #start-screen h1 {
   text-align: center;
+  font-size: 5em;
+  margin-top: 0.2em;
+  /* -webkit-text-stroke: 2px black; */
 }
 
 #start-screen-form {
@@ -17,17 +46,21 @@
   align: vertical;
   display: grid;
   grid-template-columns: 2fr 1.5fr;
-  grid-template-rows: 0.5fr 0.5fr 0.5fr;
+  grid-template-rows: 0.3fr 0.3fr 0.3fr;
   width: 50%;
-  margin: 10% auto;
+  margin: 2% auto;
 }
 #start-screen-form input, #start-screen-form label {
-  font-size: 1.2em;
-  margin: 1em;
+  font-size: 1em;
+  margin: .5em;
 }
 #start-screen-form input[type="submit"] {
   cursor: pointer;
   grid-column-start: 2;
+}
+#start-screen-form select {
+  position: relative;
+  top: 8px;
 }
 
 #form-error {
@@ -35,10 +68,13 @@
   text-align: center;
 }
 #instructions {
+  margin-left: 4%;
+  font-family: 'Titillium Web', sans-serif;
   grid-column: 1 / span 2;
   font-size: 0.9em;
 }
 #instructions-drop-btn {
+  margin-bottom: 0.5em;
   cursor: pointer;
 }
 #instructions-drop-btn:after {
@@ -47,48 +83,119 @@
   left: 10px;
 }
 #instructions-dropdown {
+  margin-left: 4%;
+  margin-right: 4%;
+  font-family: 'Titillium Web', sans-serif;
+  line-height: 1.5em;
   /* width: 60vw; */
-  overflow: scroll;
-  z-index: 1;
-  max-height: 100px;
+  /* z-index: 2; */
+  /* overflow: scroll; */
+  /* max-height: 170px; */
 }
 .hidden {
   display: none;
 }
 
 #end-screen {
+  font-size: 5em;
   display: none;
   position: fixed;
   margin-left: 10%;
   margin-right: 10%;
-  margin-top: 5%;
+  margin-top: 3%;
   z-index: 2;
-  background-color: rgba(175, 190, 209, 0.95);
+  background-color: rgba(197, 192, 229, 0.95);
   width: 80%;
   height: 80%;
-  color: #165D7A;
+  color: #68534B;
   font-family: 'Black Ops One', cursive;
   align-items: center;
   justify-content: space-evenly;
   flex-direction: column;
+  box-shadow: 0 0px 100px grey, 0 0px 100px rgba(0, 0, 0, .1);
+  -webkit-animation: fadein 1s;
+  border-radius: 2%;
+}
+
+@-webkit-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+#end-screen button {
+  font-family: 'Graduate', cursive;
+  padding: 1em;
+  font-size: 0.3em;
+  border-radius: 2%;
+  text-decoration: none;
 }
 
 .wrapper {
-font-family: 'Graduate', cursive;
+  font-family: 'Graduate', cursive;
   display: grid;
-  width: 100%;
-  height: 100%;
-  grid-template-areas: "game game"
-  "board player"
-  "board card";
-  grid-template-rows: 1fr 2fr 3fr;
-  grid-template-columns: 2fr 1fr;
+  width: 80%;
+  height: 80%;
+  margin-top: 2%;
+  margin-left: 10%;
+  margin-right: 10%;
+  grid-template-areas: "game game game"
+  "legend board player"
+  "legend board card";
+  grid-template-rows: .8fr 2fr 3fr;
+  grid-template-columns: 0.3fr 2fr 1fr;
+}
+
+#player1-score-display {
+  font-size: 1.2em;
+  display: inline-block;
+  vertical-align: middle;
+  mark: white;
+}
+
+#player2-score-display {
+  font-size: 1.2em;
+  display: inline-block;
+  vertical-align: middle;
+  mark: black;
+}
+
+#player3-score-display {
+  font-size: 1.2em;
+  display: inline-block;
+  vertical-align: middle;
+  mark: black;
+}
+
+#player4-score-display {
+  font-size: 1.2em;
+  display: inline-block;
+  vertical-align: middle;
+  mark: black;
+}
+
+#game-view-container .blinkPlayer {
+  -webkit-animation: 1s blink step-end infinite;
+}
+
+@-webkit-keyframes "blink" {
+  from, to {
+    color: #F96377;
+  }
+  50% {
+    color: black;
+  }
 }
 
 .wrapper #game-view-container {
   grid-area: game;
   display: flex;
   justify-content: space-evenly;
+  margin-top: 0.5em;
+}
+.wrapper #categoryLegend {
+  grid-area: legend;
+  width: 85px;
+  height: 35px;
 }
 
 .wrapper #board-container {
@@ -97,14 +204,28 @@ font-family: 'Graduate', cursive;
 
 .wrapper #player-view-container {
   grid-area: player;
+  /* margin-top: 2em; */
+  text-align: center;
+  /* line-height: 1.5em; */
+}
+
+.wrapper #player-view-container h3 {
+  font-size: 1.5em;
+  line-height: 1.5em;
+}
+.wrapper #player-view-container button {
+  display: block;
+  margin: 0 auto;
 }
 
 .wrapper #question-card {
-  margin-left: .5em;
-  font-family: 'Montserrat', sans-serif;
   grid-area: card;
+  margin-left: 1em;
+  font-family: 'Graduate', cursive;
+  line-height: 1.5em;
 }
 
 .wrapper #question-card ul {
   list-style-type: none;
+  margin: 10px 0;
 }

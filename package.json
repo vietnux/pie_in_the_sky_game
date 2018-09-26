@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/self-unit/pie_in_the_sky#readme",
   "dependencies": {
+    "he": "^1.2.0",
     "npm": "^6.4.1"
   },
   "devDependencies": {
