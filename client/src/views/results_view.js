@@ -28,7 +28,10 @@ ResultsView.prototype.render = function (section, scores) {
 
   Highcharts.chart(section, {
       chart: {
-          type: 'column'
+          type: 'bar',
+          style: {
+            fontFamily: 'Titillium Web', sans-serif;
+        }
       },
       title: {
           text: 'High Score'
@@ -42,9 +45,9 @@ ResultsView.prototype.render = function (section, scores) {
       },
       yAxis: {
           min: 0,
-          max:20,
+          max: 10 ,
           title: {
-              text: 'Score Out Of 100'
+              text: 'Score Out Of 10'
           }
       },
       tooltip: {
