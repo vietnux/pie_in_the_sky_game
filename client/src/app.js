@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
       player4.colour = "darkred";
     };
 
-    // startScreenDiv.style.display = "none";
     startScreenDiv.classList.add('end');
 
     const board = new Board();

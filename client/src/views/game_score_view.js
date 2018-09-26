@@ -12,28 +12,6 @@ GameScoreView.prototype.bindEvents = function () {
   });
 };
 
-// GameScoreView.prototype.updateScores = function () {
-//   for (player in this.game.players) {
-//     const scoreDisplay = document.querySelector(`#${this.game.players[player].player}-score-display`);
-//     scoreDisplay.textContent = this.game.players[player].name;
-//     this.renderScore(this.game.players[player].score, scoreDisplay);
-//   }
-// };
-//
-// GameScoreView.prototype.renderScore = function (scores, container) {
-//   const scalerContainer = createAndAppend('div', 'scaler-container', null, null, container);
-//   const scaler = createAndAppend('div', 'scaler', null, null, scalerContainer);
-//   const list = createAndAppend('ul', 'segments', null, null, scaler);
-//
-//
-//   scores.forEach((value, index) => {
-//     const segment = createAndAppend('li', 'segment', null, null, list);
-//     segment.style.webkitTransform = `rotate(${index * 60}deg) skewY(-30deg)`;
-//     if (value === 0) {
-//       segment.style.visibility = 'hidden';
-//     }
-//   });
-// };
 GameScoreView.prototype.updateScores = function () {
   for (player in this.game.players) {
     const scoreDisplay = document.querySelector(`#${this.game.players[player].player}-score-display`);
