@@ -13,21 +13,22 @@ const Game = function (player1, player2, player3, player4, board) {
   this.player3 = player3;
   this.player4 = player4;
   this.players = {};
-  this.players[this.player1.name] = this.player2;
+  this.players[this.player1.id] = this.player2;
   if (this.player4) {
-    this.players[this.player4.name] = this.player1;
-    this.players[this.player3.name] = this.player4;
-    this.players[this.player2.name] = this.player3;
+    this.players[this.player4.id] = this.player1;
+    this.players[this.player3.id] = this.player4;
+    this.players[this.player2.id] = this.player3;
   } else if (this.player3) {
-    this.players[this.player3.name] = this.player1;
-    this.players[this.player2.name] = this.player3;
+    this.players[this.player3.id] = this.player1;
+    this.players[this.player2.id] = this.player3;
   } else {
-    this.players[this.player2.name] = this.player1;
+    this.players[this.player2.id] = this.player1;
   }
   this.board = board;
   this.currentPlayer = null;
   this.currentCategory = null;
   this.timer = null;
+  // this.winSound = { url : "./sounds/win.mp3" };
 };
 
 Game.prototype.startGame = function () {
@@ -61,7 +62,6 @@ Game.prototype.checkResult = function (result) {
   else {
     const categoryIndex = categories.indexOf(result.category);
     this.currentPlayer.score.splice(categoryIndex, 1, 1);
-    // console.log(this.currentPlayer.score);
     PubSub.publish('Game:score-change', this.currentPlayer.score);
   };
   const playerScore = this.currentPlayer.score.reduce((a, b) => a + b, 0);
@@ -71,7 +71,7 @@ Game.prototype.checkResult = function (result) {
 };
 
 Game.prototype.endTurn = function () {
-  this.currentPlayer = this.players[this.currentPlayer.name];
+  this.currentPlayer = this.players[this.currentPlayer.id];
   this.timer.endTimer();
   this.timer = new Timer (50);
   this.timer.countdown();
@@ -90,6 +90,7 @@ Game.prototype.timerFinish = function () {
 Game.prototype.endGame = function () {
   PubSub.publish('Game:end-game', this);
   this.timer.endTimer();
+  // playSound(this.winSound);
 };
 
 
