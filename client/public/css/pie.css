@@ -44,27 +44,27 @@
   width: 50%;
 }
 
+/* movies */
+.segments > :nth-child(3) {
+  background-color: #78EDB3;
+}
 /* science */
  .segments > :nth-child(1) {
-  background-color: #F8333C;
+  background-color: #F99F3E;
 }
 /* sports */
   .segments > :nth-child(2) {
-  background-color: #FCAB10;
-}
-/* movies */
-  .segments > :nth-child(3) {
-  background-color: #44AF69;
+  background-color: #FDE74C;
 }
 /* history */
   .segments > :nth-child(4) {
-  background-color: #2B9EB3;
+  background-color: #51A5EF;
 }
 /* music */
   .segments > :nth-child(5) {
-  background-color: #6A4699;
+  background-color: #F475E3;
 }
 /* books */
   .segments > :nth-child(6) {
-  background-color: #840032;
+  background-color: #F96377;
 }
