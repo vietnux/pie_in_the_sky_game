@@ -33,7 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
       player4 = new Player(event.target.player4.value, 'player4');
     };
 
-    startScreenDiv.style.display = "none";
+    // startScreenDiv.style.display = "none";
+    startScreenDiv.classList.add('end');
 
     const board = new Board();
     board.bindEvents();

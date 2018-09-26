@@ -28,7 +28,8 @@ Board.prototype.highlightSquares = function (squares, player) {
   for (move_option of squares) {
     const highlightedSquare = document.querySelector(`#${move_option}`);
     highlightedSquare.classList.add('highlighted-move');
-    highlightedSquare.style.border = "2px dashed white";
+    highlightedSquare.style.border = "3px white";
+    highlightedSquare.style.borderStyle = "dashed solid";
     highlightedSquare.style.color = "white";
     highlightedSquare.onclick = function () {
       clearHighlightedSquares();

@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <title>Pie In The Sky</title>
   <script src="js/bundle.js"></script>
+  <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/game.css">
   <link rel="stylesheet" href="css/pie.css">
   <link rel="stylesheet" href="css/board.css">
@@ -19,9 +20,9 @@
       <label for="quiz-difficulty">Choose your difficulty!</label>
       <select id="quiz-difficulty">
         <option value="">Any Difficulty</option>
-        <option value="easy">Easy</option>
-        <option value="medium">Medium</option>
-        <option value="hard">Hard</option>
+        <option value="easy">Can I play daddy?</option>
+        <option value="medium">Bring it on!</option>
+        <option value="hard">I am death incarnate.</option>
       </select>
       <label for="player1">Player 1: </label>
       <input required type="text" name="player1">
@@ -33,30 +34,41 @@
       <input type="text" name="player4">
       <input id="start-button" type="submit" value="Start Game">
 
-    <div id="instructions">
-    <h5 id="instructions-drop-btn">How To Play</h5>
-    <div id="instructions-dropdown" class="hidden">The object of the game is to move around the board by correctly
-      answering trivia questions. Questions are split into six colour-coded categories, and in order
-      to win the game, a player must correctly answer a question from each category.<br>
+      <div id="instructions">
+        <h5 id="instructions-drop-btn">How To Play</h5>
+        <div id="instructions-dropdown" class="hidden">The object of the game is to move around the board by correctly
+          answering trivia questions. Questions are split into six colour-coded categories, and in order
+          to win the game, a player must correctly answer a question from each category.<br>
 
-On their turn, a player rolls the die and can then move that number of squares to another point on the
-board, at which point they will receive a question related to the category of the square they landed on.
-If they answer correctly, they can repeat the process. If they answer incorrectly, their turn ends, and
-the next player starts their turn.<br>
-A player also has a maximum time of one minute at the board, before play automatically switches to the
-next player.<br>
-The game is won when a player has successfully answered at least one question from every category.</div>
+          On their turn, a player rolls the die and can then move that number of squares to another point on the
+          board, at which point they will receive a question related to the category of the square they landed on.
+          If they answer correctly, they can repeat the process. If they answer incorrectly, their turn ends, and
+          the next player starts their turn.<br>
+          A player also has a maximum time of one minute at the board, before play automatically switches to the
+          next player.<br>
+          The game is won when a player has successfully answered at least one question from every category.</div>
+        </div>
+      </div>
+    </form>
+    <div id="form-error"></div>
   </div>
-</div>
-  </form>
-  <div id="form-error"></div>
-</div>
   <div id="end-screen">
     <h1>Congratulations!</h1>
     <div id=end-message></div>
+    <button><a href="./index.html">New Game</a></button>
   </div>
 
   <div class="wrapper">
+
+    <div id = "categoryLegend">
+      <h3>Categories:</h3>
+      <div class = "movies categoryLegends">Movies</div>
+      <div class = "science categoryLegends">Science</div>
+      <div class = "sports categoryLegends">Sports</div>
+      <div class = "history categoryLegends">History</div>
+      <div class = "music categoryLegends">Music</div>
+      <div class = "books categoryLegends">Books</div>
+    </div>
 
     <div id="game-view-container">
       <h3 id="player1-score-display"></h3>
@@ -86,6 +98,7 @@ The game is won when a player has successfully answered at least one question fr
         <div id = "a6" class="books"></div>
         <div id = "a7" class="movies"></div>
         <div id = "b1" class="books"></div>
+        <!-- <span class="hole"></span> -->
         <div id = "b4" class="science"></div>
         <div id = "b7" class="science"></div>
         <div id = "c1" class="music"></div>

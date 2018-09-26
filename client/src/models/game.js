@@ -27,6 +27,7 @@ const Game = function (player1, player2, player3, player4, board) {
   this.currentPlayer = null;
   this.currentCategory = null;
   this.timer = null;
+  // this.winSound = { url : "./sounds/win.mp3" };
 };
 
 Game.prototype.startGame = function () {
@@ -64,7 +65,7 @@ Game.prototype.checkResult = function (result) {
     PubSub.publish('Game:score-change', this.currentPlayer.score);
   };
   const playerScore = this.currentPlayer.score.reduce((a, b) => a + b, 0);
-  if (playerScore === 6) {
+  if (playerScore === 1) {
     this.endGame();
   }
 };
@@ -89,6 +90,7 @@ Game.prototype.timerFinish = function () {
 Game.prototype.endGame = function () {
   PubSub.publish('Game:end-game', this);
   this.timer.endTimer();
+  // playSound(this.winSound);
 };
 
 
