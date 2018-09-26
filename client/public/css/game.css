@@ -90,11 +90,11 @@ to   { opacity: 0; }
   margin-top: 2%;
   margin-left: 10%;
   margin-right: 10%;
-  grid-template-areas: "game game"
-  "board player"
-  "board card";
+  grid-template-areas: "game game game"
+                      "legend board player"
+                      "legend board card";
   grid-template-rows: 1fr 2fr 3fr;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 0.5fr 2fr 1fr;
 }
 
 #player1-score-display {
@@ -113,7 +113,12 @@ to   { opacity: 0; }
   grid-area: game;
   display: flex;
   justify-content: space-evenly;
-  margin-top: 1.5em;
+  margin-top: 0.5em;
+}
+.wrapper #categoryLegend {
+  grid-area: legend;
+  width: 85px;
+  height: 35px;
 }
 
 .wrapper #board-container {
