@@ -5,8 +5,6 @@ const Player = require('../models/player.js');
 
 const BoardView = function (game) {
   this.game = game;
-  this.player1Piece = null;
-  this.player2Piece = null;
 }
 
 BoardView.prototype.bindEvents = function () {
@@ -20,9 +18,13 @@ BoardView.prototype.bindEvents = function () {
   });
 
   this.player1Piece = document.querySelector('#p1-piece');
+  this.player1Piece.style.backgroundColor = this.game.player1.colour;
   this.player2Piece = document.querySelector('#p2-piece');
+  this.player2Piece.style.backgroundColor = this.game.player2.colour;
   this.player3Piece = document.querySelector('#p3-piece');
+  this.player3Piece.style.backgroundColor = this.game.player3.colour;
   this.player4Piece = document.querySelector('#p4-piece');
+  this.player4Piece.style.backgroundColor = this.game.player4.colour;
   // this.movePlayer();
   this.printNumber();
 

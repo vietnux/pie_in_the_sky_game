@@ -7,6 +7,7 @@ const Player = function (name, player) {
   this.score = [0, 0, 0, 0, 0, 0];
   this.position = 'a1';
   this.player = player;
+  this.colour = null;
 };
 
 Player.prototype.rollDie = function () {
