@@ -21,7 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const newGame = new Game(player1, player2);
 
-    startScreenDiv.style.display = "none";
+    // startScreenDiv.style.display = "none";
+    startScreenDiv.classList.add('end');
 
     const board = new Board();
     board.bindEvents();
