@@ -61,7 +61,7 @@ GameScoreView.prototype.changeBlinkingPlayer = function () {
       else {
         scoreDisplay.classList.remove('blinkPlayer');
       }
-      this.renderScore(this.game.players[player].score, scoreDisplay);
+      this.renderScore(this.game.players[player].score, this.game.players[player].colour, scoreDisplay);
     };
   });
 };
