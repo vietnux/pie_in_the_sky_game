@@ -42,7 +42,7 @@ Board.prototype.highlightSquares = function (squares) {
 clearHighlightedSquares = function () {
   for (square of document.querySelectorAll('.highlighted-move')) {
     // square.classList.remove('highlighted-move'); - doesn't seem to work?
-    square.style.border = "1px solid gray";
+    square.style.border = "none";
     square.style.color = "black";
 // Remove event listener from square - very difficult to remove if addEventListener used instead of onclick!
     square.onclick = null;

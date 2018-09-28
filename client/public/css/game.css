@@ -97,16 +97,16 @@ body {
 }
 
 #end-screen {
-  font-size: 5em;
+  font-size: 3em;
   display: none;
   position: fixed;
   margin-left: 10%;
   margin-right: 10%;
-  margin-top: 3%;
+  margin-top: 1%;
   z-index: 2;
   background-color: rgba(197, 192, 229, 0.95);
   width: 80%;
-  height: 80%;
+  height: 90%;
   color: #68534B;
   font-family: 'Black Ops One', cursive;
   align-items: center;
@@ -124,7 +124,7 @@ body {
 
 #end-screen button {
   font-family: 'Graduate', cursive;
-  padding: 1em;
+  padding: .5em;
   font-size: 0.3em;
   border-radius: 2%;
   text-decoration: none;
@@ -136,12 +136,13 @@ body {
   width: 80%;
   height: 80%;
   margin-top: 2%;
+  margin-bottom: 2%;
   margin-left: 10%;
   margin-right: 10%;
   grid-template-areas: "game game game"
   "legend board player"
   "legend board card";
-  grid-template-rows: .8fr 2fr 3fr;
+  grid-template-rows: .5fr 1.5fr 2fr;
   grid-template-columns: 0.3fr 2fr 1fr;
 }
 
