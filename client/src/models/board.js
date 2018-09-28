@@ -37,7 +37,7 @@ Board.prototype.highlightSquares = function (squares, player) {
 clearHighlightedSquares = function () {
   for (square of document.querySelectorAll('.highlighted-move')) {
     square.classList.remove('highlighted-move');
-    square.style.border = "1px solid gray";
+    square.style.border = "none";
     square.style.color = "black";
     square.onclick = null;
   };
