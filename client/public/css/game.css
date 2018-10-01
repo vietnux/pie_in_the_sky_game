@@ -86,10 +86,6 @@ body {
   margin-right: 4%;
   font-family: 'Titillium Web', sans-serif;
   line-height: 1.5em;
-  /* width: 60vw; */
-  /* z-index: 2; */
-  /* overflow: scroll; */
-  /* max-height: 170px; */
 }
 .hidden {
   display: none;
@@ -130,18 +126,48 @@ body {
 }
 
 .wrapper {
-  font-family: 'Graduate', cursive;
   display: grid;
-  width: 80%;
-  height: 80%;
-  margin-top: 2%;
-  margin-left: 10%;
-  margin-right: 10%;
-  grid-template-areas: "game game game"
-  "legend board player"
-  "legend board card";
-  grid-template-rows: .8fr 2fr 3fr;
-  grid-template-columns: 0.3fr 2fr 1fr;
+  grid-template-areas: "legend legend"
+  "game game"
+  "board board"
+  "player card";
+  grid-template-rows: .4fr 1fr 5fr 3fr;
+  grid-template-columns: 1fr 3fr;
+  font-family: 'Graduate', cursive;
+  width: 90%;
+  height: 90%;
+  margin: 2% 10% 0;
+}
+.wrapper #categoryLegend {
+  grid-area: legend;
+  display: block;
+}
+
+.wrapper #game-view-container {
+  grid-area: game;
+  display: block;
+}
+
+.wrapper #player-view-container {
+  grid-area: player;
+  display: block;
+}
+
+.wrapper #player-view-container h3 {
+  margin: 1em auto;
+  display: inline-block;
+}
+.wrapper #player-view-container button {
+  display: inline-block;
+}
+
+#categoryLegend h3 {
+  margin: 10px 0;
+}
+#categoryLegend div {
+  padding: 2px;
+  margin: 3px 0;
+  display: inline-block;
 }
 
 #player1-score-display {
@@ -185,37 +211,9 @@ body {
   }
 }
 
-.wrapper #game-view-container {
-  grid-area: game;
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 0.5em;
-}
-.wrapper #categoryLegend {
-  grid-area: legend;
-  width: 85px;
-  height: 35px;
-}
 
-.wrapper #board-container {
-  grid-area: board;
-}
 
-.wrapper #player-view-container {
-  grid-area: player;
-  /* margin-top: 2em; */
-  text-align: center;
-  /* line-height: 1.5em; */
-}
 
-.wrapper #player-view-container h3 {
-  font-size: 1.5em;
-  line-height: 1.5em;
-}
-.wrapper #player-view-container button {
-  display: block;
-  margin: 0 auto;
-}
 
 .wrapper #question-card {
   grid-area: card;
@@ -227,4 +225,48 @@ body {
 .wrapper #question-card ul {
   list-style-type: none;
   margin: 10px 0;
+}
+
+@media (min-width: 600px) {
+  .wrapper {
+    width: 80%;
+    height: 80%;
+    display: grid;
+    grid-template-areas: "game game game"
+    "legend board player"
+    "legend board card";
+    grid-template-rows: .8fr 2fr 3fr;
+    grid-template-columns: 0.3fr 2fr 1fr;
+  }
+  .wrapper #game-view-container {
+    grid-area: game;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 0.5em;
+  }
+  .wrapper #categoryLegend {
+    grid-area: legend;
+    width: 85px;
+    height: 35px;
+    display: inline-block;
+  }
+
+  .wrapper #board-container {
+    grid-area: board;
+  }
+
+  .wrapper #player-view-container {
+    grid-area: player;
+    text-align: center;
+  }
+
+  .wrapper #player-view-container h3 {
+    font-size: 1.5em;
+    line-height: 1.5em;
+  }
+  .wrapper #player-view-container button {
+    display: block;
+    margin: 0 auto;
+  }
+
 }

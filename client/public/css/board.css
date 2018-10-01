@@ -202,23 +202,9 @@
 .highlighted-move:hover {
   cursor: pointer;
 }
-/*
-.playerPiece {
-  height: 30px;
-  width: 30px;
-  border-radius:50%;
-  background-color: black;
-  transition: all 0.2s linear;
-} */
-
-/* #player2 {
-  background-color: white;
-  bottom: 0;
-} */
 
 .movies, .science, .sports, .history,
 .music, .books {
-  /* border: 1px solid black; */
   position: relative;
 }
 
@@ -246,10 +232,9 @@
   background-color: #F96377;
 }
 
-#categoryLegend h3 {
-  margin: 10px 0;
-}
-#categoryLegend div {
-  padding: 2px;
-  margin: 3px 0;
+@media (min-width: 600px) {
+  #board-grid {
+    width: 40vw;
+    height: 40vw;
+  }
 }
