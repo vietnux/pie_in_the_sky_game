@@ -34,17 +34,17 @@ BoardView.prototype.bindEvents = function () {
         this.game.currentPlayer.position = evt.detail;
         let activePiece = null;
         if (this.game.currentPlayer === this.game.player1) {
-          this.player1Piece.style.left = BoardMap[evt.detail]['left']+4 + 'px';
-          this.player1Piece.style.top = BoardMap[evt.detail]['top']+4 + 'px';
+          this.player1Piece.style.left = BoardMap[evt.detail]['left']+0.8 + '%';
+          this.player1Piece.style.top = BoardMap[evt.detail]['top']+0.8 + '%';
         } else if (this.game.currentPlayer === this.game.player2)  {
-          this.player2Piece.style.left = BoardMap[evt.detail]['left']+42 + 'px';
-          this.player2Piece.style.top = BoardMap[evt.detail]['top']+42 + 'px';
+          this.player2Piece.style.left = BoardMap[evt.detail]['left']+7.4 + '%';
+          this.player2Piece.style.top = BoardMap[evt.detail]['top']+7.4 + '%';
         } else if (this.game.currentPlayer === this.game.player3) {
-          this.player3Piece.style.left = BoardMap[evt.detail]['left']+42 + 'px';
-          this.player3Piece.style.top = BoardMap[evt.detail]['top']+4 + 'px';
+          this.player3Piece.style.left = BoardMap[evt.detail]['left']+7.4 + '%';
+          this.player3Piece.style.top = BoardMap[evt.detail]['top']+0.8 + '%';
         } else {
-          this.player4Piece.style.left = BoardMap[evt.detail]['left']+4 + 'px';
-          this.player4Piece.style.top = BoardMap[evt.detail]['top']+42 + 'px';
+          this.player4Piece.style.left = BoardMap[evt.detail]['left']+0.8 + '%';
+          this.player4Piece.style.top = BoardMap[evt.detail]['top']+7.4 + '%';
         };
         const category = document.querySelector(`#${evt.detail}`).classList.value;
         PubSub.publish('BoardView:category', category);
