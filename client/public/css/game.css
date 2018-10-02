@@ -5,11 +5,9 @@ body {
 #start-screen {
   position: fixed;
   z-index: 2;
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-top: 1%;
+  margin: 5%;
   background-color: rgba(197, 192, 229, 0.95);
-  width: 80%;
+  width: 90%;
   height: 90%;
   color: #68534B;
   font-family: 'Black Ops One', cursive;
@@ -22,9 +20,7 @@ body {
   visibility: hidden;
   z-index: 0;
   position: fixed;
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-top: 7%;
+  margin: 1% auto;
   background-color: rgba(197, 192, 229, 0.0);
   width: 80%;
   height: 60%;
@@ -36,17 +32,16 @@ body {
 
 #start-screen h1 {
   text-align: center;
-  font-size: 5em;
+  font-size: 2em;
   margin-top: 0.2em;
 }
 
 #start-screen-form {
   font-family: 'Graduate', cursive;
-  align: vertical;
+  font-size: 1.5em;
   display: grid;
   grid-template-columns: 2fr 1.5fr;
   grid-template-rows: 0.3fr 0.3fr 0.3fr;
-  width: 50%;
   margin: 2% auto;
 }
 #start-screen-form input, #start-screen-form label {
@@ -86,6 +81,8 @@ body {
   margin-right: 4%;
   font-family: 'Titillium Web', sans-serif;
   line-height: 1.5em;
+  max-height: 40vh;
+  overflow: scroll;
 }
 .hidden {
   display: none;
@@ -203,6 +200,18 @@ body {
 }
 
 @media (min-width: 600px) {
+
+  #start-screen h1 {
+    font-size: 5em;
+  }
+  #start-screen-form {
+    font-family: 'Graduate', cursive;
+    display: grid;
+    grid-template-columns: 2fr 1.5fr;
+    grid-template-rows: 0.3fr 0.3fr 0.3fr;
+    width: 50%;
+    margin: 2% auto;
+  }
   .wrapper {
     width: 80%;
     height: 80%;
