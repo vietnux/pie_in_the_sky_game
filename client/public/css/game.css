@@ -5,14 +5,14 @@ body {
 #start-screen {
   position: fixed;
   z-index: 2;
-  margin: 5%;
   background-color: rgba(197, 192, 229, 0.95);
-  width: 90%;
-  height: 90%;
+  width: 96%;
+  height: 96%;
   color: #68534B;
   font-family: 'Black Ops One', cursive;
   box-shadow: 0 0px 100px grey, 0 0px 100px rgba(0, 0, 0, .1);
   border-radius: 2%;
+  margin: 2%;
 }
 
 #start-screen.end {
@@ -38,11 +38,11 @@ body {
 
 #start-screen-form {
   font-family: 'Graduate', cursive;
-  font-size: 1.5em;
   display: grid;
-  grid-template-columns: 2fr 1.5fr;
-  grid-template-rows: 0.3fr 0.3fr 0.3fr;
-  margin: 2% auto;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: repeat(6, 1fr);
+  margin: 10% auto;
+  width: 90%;
 }
 #start-screen-form input, #start-screen-form label {
   font-size: 1em;
@@ -143,43 +143,31 @@ body {
 .wrapper #question-card {
   font-family: 'Graduate', cursive;
 }
-
+#categoryLegend {
+  display: flex;
+  flex-wrap: wrap;
+}
 #categoryLegend h3 {
-  margin: 10px 0;
+  flex: 100%;
+  margin: 3% auto;
 }
 #categoryLegend div {
-  padding: 2px;
-  margin: 3px 0;
-  display: inline-block;
+  padding: 3px;
+  font-size: 0.8em;
+  flex: 1 1 30%;
 }
-
-#player1-score-display {
-  font-size: 1.2em;
-  display: inline-block;
-  vertical-align: middle;
-  mark: white;
+#game-view-container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
 }
-
-#player2-score-display {
-  font-size: 1.2em;
-  display: inline-block;
-  vertical-align: middle;
-  mark: black;
-}
-
-#player3-score-display {
-  font-size: 1.2em;
-  display: inline-block;
-  vertical-align: middle;
-  mark: black;
-}
-
-#player4-score-display {
-  font-size: 1.2em;
-  display: inline-block;
-  vertical-align: middle;
-  mark: black;
-}
+#player1-score-display, #player2-score-display,
+ #player3-score-display, #player4-score-display {
+   flex: 1 1 45%;
+   margin: 1% auto;
+   text-align: right;
+ }
 
 #game-view-container .blinkPlayer {
   -webkit-animation: 1s blink step-end infinite;
@@ -199,10 +187,11 @@ body {
   margin: 10px 0;
 }
 
-@media (min-width: 600px) {
+
+@media all and (min-width: 600px) {
 
   #start-screen h1 {
-    font-size: 5em;
+    font-size: 4em;
   }
   #start-screen-form {
     font-family: 'Graduate', cursive;
@@ -210,7 +199,6 @@ body {
     grid-template-columns: 2fr 1.5fr;
     grid-template-rows: 0.3fr 0.3fr 0.3fr;
     width: 50%;
-    margin: 2% auto;
   }
   .wrapper {
     width: 80%;
@@ -228,6 +216,10 @@ body {
     justify-content: space-evenly;
     margin-top: 0.5em;
   }
+  #player1-score-display, #player2-score-display,
+   #player3-score-display, #player4-score-display {
+     flex: 1 1 20%;
+   }
   .wrapper #categoryLegend {
     grid-area: legend;
     width: 85px;
@@ -243,7 +235,6 @@ body {
     grid-area: player;
     text-align: center;
   }
-
   .wrapper #player-view-container h3 {
     font-size: 1.5em;
     line-height: 1.5em;

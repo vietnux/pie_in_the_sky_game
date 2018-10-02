@@ -15,18 +15,18 @@
 .scaler {
   -webkit-transform: scale(0.25);
   -webkit-transform-origin: 0 0;
-  height: 10vw;
-  width: 10vw;
-  min-height: 25px;
+  height: 6vw;
+  width: 6vw;
+  min-height: 20px;
   margin: 3px;
-  min-width: 25px;
+  min-width: 20px;
 }
 
 .segments {
-  min-height: 100px;
-  min-width: 100px;
-  height: 40vw;
-  width: 40vw;
+  min-height: 80px;
+  min-width: 80px;
+  height: 24vw;
+  width: 24vw;
   border-radius: 50%;
   list-style: none;
   margin: 0;
