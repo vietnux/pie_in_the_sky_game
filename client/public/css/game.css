@@ -157,16 +157,15 @@ body {
   flex: 1 1 30%;
 }
 #game-view-container {
-  width: 80%;
+  width: 95%;
   margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
 }
 #player1-score-display, #player2-score-display,
  #player3-score-display, #player4-score-display {
-   flex: 1 1 45%;
+   flex: 1 1 25%;
    margin: 1% auto;
-   text-align: right;
+   font-size: 0.8em;
  }
 
 #game-view-container .blinkPlayer {
@@ -201,17 +200,19 @@ body {
     width: 50%;
   }
   .wrapper {
-    width: 80%;
-    height: 80%;
+    width: 90%;
+    height: 90%;
     display: grid;
     grid-template-areas: "game game game"
     "legend board player"
-    "legend board card";
-    grid-template-rows: .8fr 2fr 3fr;
-    grid-template-columns: 0.3fr 2fr 1fr;
+    "card card card";
+    grid-template-rows: 0.1fr 1fr 0.5fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
   .wrapper #game-view-container {
     grid-area: game;
+    width: 80%;
+    margin: 1em auto;
     display: flex;
     justify-content: space-evenly;
     margin-top: 0.5em;
@@ -219,12 +220,12 @@ body {
   #player1-score-display, #player2-score-display,
    #player3-score-display, #player4-score-display {
      flex: 1 1 20%;
+     font-size: 1.2em;
    }
   .wrapper #categoryLegend {
     grid-area: legend;
-    width: 85px;
-    height: 35px;
     display: inline-block;
+    padding: 1em;
   }
 
   .wrapper #board-container {
@@ -234,11 +235,9 @@ body {
   .wrapper #player-view-container {
     grid-area: player;
     text-align: center;
+    padding: 1em;
   }
-  .wrapper #player-view-container h3 {
-    font-size: 1.5em;
-    line-height: 1.5em;
-  }
+
   .wrapper #player-view-container button {
     display: block;
     margin: 0 auto;
@@ -246,7 +245,6 @@ body {
   .wrapper #question-card {
     grid-area: card;
     margin-left: 1em;
-    line-height: 1.5em;
   }
 
 }
