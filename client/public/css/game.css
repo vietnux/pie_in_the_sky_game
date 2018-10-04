@@ -22,8 +22,6 @@ body {
   position: fixed;
   margin: 1% auto;
   background-color: rgba(197, 192, 229, 0.0);
-  width: 80%;
-  height: 60%;
   color: rgba(104, 83, 75, 0.0);
   box-shadow: none;
   opacity: 0;
@@ -89,16 +87,14 @@ body {
 }
 
 #end-screen {
-  font-size: 5em;
+  font-size: 2em;
   display: none;
   position: fixed;
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-top: 3%;
+  margin: 3%;
   z-index: 2;
   background-color: rgba(197, 192, 229, 0.95);
-  width: 80%;
-  height: 80%;
+  width: 94%;
+  height: 94%;
   color: #68534B;
   font-family: 'Black Ops One', cursive;
   align-items: center;
@@ -192,12 +188,23 @@ body {
   #start-screen h1 {
     font-size: 4em;
   }
+
   #start-screen-form {
     font-family: 'Graduate', cursive;
     display: grid;
     grid-template-columns: 2fr 1.5fr;
     grid-template-rows: 0.3fr 0.3fr 0.3fr;
     width: 50%;
+  }
+  /* #start-screen.end {
+    width: 80%;
+    height: 60%;
+  } */
+  #end-screen {
+    font-size: 4em;
+    width: 96%;
+    height: 96%;
+    margin: 2%;
   }
   .wrapper {
     width: 90%;

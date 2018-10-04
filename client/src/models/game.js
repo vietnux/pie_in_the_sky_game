@@ -50,7 +50,6 @@ Game.prototype.playTurn = function () {
   const numberRolled = 'r' + evt.detail;
   const move_options = BoardMap[this.currentPlayer.position][numberRolled];
   PubSub.publish('Game:player-choose-move', [move_options, this.currentPlayer]);
-  // this.board.movesPlayer(this.currentPlayer, moves);
 });
 
 };
