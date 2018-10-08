@@ -72,7 +72,7 @@
   background-color: #F96377;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 769px) {
   .segments {
     height: 12vw;
     width: 12vw;

@@ -232,7 +232,7 @@
   background-color: #F96377;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 769px) {
   #board-grid {
     width: 40vw;
     height: 40vw;

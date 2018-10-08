@@ -40,19 +40,15 @@ body {
   grid-template-columns: 2fr 1fr;
   grid-template-rows: repeat(6, 1fr);
   margin: 10% auto;
-  width: 90%;
+  width: 80%;
 }
 #start-screen-form input, #start-screen-form label {
-  font-size: 1em;
+  width: 90%;
   margin: .5em;
 }
 #start-screen-form input[type="submit"] {
   cursor: pointer;
   grid-column-start: 2;
-}
-#start-screen-form select {
-  position: relative;
-  top: 8px;
 }
 
 #form-error {
@@ -183,7 +179,7 @@ body {
 }
 
 
-@media all and (min-width: 600px) {
+@media all and (min-width: 769px) {
 
   #start-screen h1 {
     font-size: 4em;
@@ -196,10 +192,7 @@ body {
     grid-template-rows: 0.3fr 0.3fr 0.3fr;
     width: 50%;
   }
-  /* #start-screen.end {
-    width: 80%;
-    height: 60%;
-  } */
+
   #end-screen {
     font-size: 4em;
     width: 96%;
