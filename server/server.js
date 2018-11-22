@@ -10,7 +10,7 @@ app.use(express.static(publicPath));
 
 app.use(parser.json());
 
-MongoClient.connect('mongodb://localhost:27017')
+MongoClient.connect('mongodb://<self-unit>:<Vitri14Ous93>@ds151840.mlab.com:51840/heroku_sdpqx20n')
   .then((client) => {
     const db = client.db('pieInTheSky');
     const gamesCollection = db.collection('games');
