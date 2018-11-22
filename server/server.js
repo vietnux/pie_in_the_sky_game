@@ -10,6 +10,10 @@ app.use(express.static(publicPath));
 
 app.use(parser.json());
 
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(publicPath, 'index.html'));
+});
+
 MongoClient.connect('mongodb://<self-unit>:<Vitri14Ous93>@ds151840.mlab.com:51840/heroku_sdpqx20n')
   .then((client) => {
     const db = client.db('pieInTheSky');
@@ -19,6 +23,6 @@ MongoClient.connect('mongodb://<self-unit>:<Vitri14Ous93>@ds151840.mlab.com:5184
   })
   .catch(console.err);
 
-app.listen(process.env.PORT || 3000, function () {
+app.listen(process.env.PORT || 8080, function () {
   console.log(`Listening on port ${ this.address().port}, ${ app.settings.env }`);
 });

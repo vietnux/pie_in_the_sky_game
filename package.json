@@ -5,8 +5,9 @@
   "scripts": {
     "test": "mocha client/src/models/specs",
     "build": "webpack -w",
-    "start": "node server/server.js",
-    "server:dev": "nodemon server/server.js"
+    "dev": "node server/server.js",
+    "server:dev": "nodemon server/server.js",
+    "heroku-postbuild": "webpack -p"
   },
   "repository": {
     "type": "git",
