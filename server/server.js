@@ -19,6 +19,6 @@ MongoClient.connect('mongodb://<self-unit>:<Vitri14Ous93>@ds151840.mlab.com:5184
   })
   .catch(console.err);
 
-app.listen(3000, function () {
-  console.log(`Listening on port ${ this.address().port }`);
+app.listen(process.env.PORT || 3000, function () {
+  console.log(`Listening on port ${ this.address().port}, ${ app.settings.env }`);
 });
