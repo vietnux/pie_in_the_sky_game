@@ -8,10 +8,9 @@ beforeEach(function () {
 })
 
   it("should have seconds", function () {
-    const actual = timer.countdown()
-    assert.strictEqual(actual, 0);
+    timer.countdown();
+    const actual = timer.timeLeft;
+    assert.strictEqual(actual, 10);
   });
-
-
 
 });

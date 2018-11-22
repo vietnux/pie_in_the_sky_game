@@ -14,11 +14,10 @@ Timer.prototype.countdown = function (section) {
 Timer.prototype.motion = function (section) {
   if (this.timeLeft === 0) {
     this.endTimer();
-}
-else {
-  this.timeLeft --;
-};
-PubSub.publish('Timer:currentTime', this.timeLeft)
+  } else {
+    this.timeLeft --;
+  };
+  PubSub.publish('Timer:currentTime', this.timeLeft)
 };
 
 Timer.prototype.endTimer = function () {
