@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const card = new Card(event.target[0].value)
     card.bindEvents();
 
-    const highScoreUrl = 'http://localhost:3000/api/games'
+      const highScoreUrl = 'mongodb://<self-unit>:<Vitri14Ous93>@ds151840.mlab.com:51840/heroku_sdpqx20n'
     const highScore = new HighScore(highScoreUrl);
     highScore.bindEvents();
 
