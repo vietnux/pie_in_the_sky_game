@@ -16,7 +16,7 @@ app.get('*', (req, res) => {
 
 MongoClient.connect('mongodb://heroku_sdpqx20n:vu751c1jh8j0ciigp6to9k7093@ds151840.mlab.com:51840/heroku_sdpqx20n')
   .then((client) => {
-    const db = client.db('pieInTheSky');
+    const db = client.db('heroku_sdpqx20n');
     const gamesCollection = db.collection('games');
     const gamesRouter = createRouter(gamesCollection);
     app.use('/api/games', gamesRouter);
