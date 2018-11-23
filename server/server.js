@@ -10,10 +10,6 @@ app.use(express.static(publicPath));
 
 app.use(parser.json());
 
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(publicPath, 'index.html'));
-});
-
 MongoClient.connect('mongodb://heroku_sdpqx20n:vu751c1jh8j0ciigp6to9k7093@ds151840.mlab.com:51840/heroku_sdpqx20n')
   .then((client) => {
     const db = client.db('heroku_sdpqx20n');
