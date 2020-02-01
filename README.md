@@ -3,6 +3,9 @@
 ## Summary
 Full-stack game (JavaScript/MongoDB) similar to Trivial Pursuits. Up to 4 players can answer questions based on the category their token lands on after rolling a die in turns. Questions are served via API from OpenTrivia and high scores are saved to a database which is displayed in a chart at the end of the game.
 
+## Install
+To install, clone the repository and run 'npm install' before running the build task and then the server:dev task
+
 ## MVP
 
 ### FRONT-END
