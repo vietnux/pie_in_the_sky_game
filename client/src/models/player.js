@@ -1,6 +1,6 @@
 const PubSub = require('../helpers/pub_sub.js');
 
-const Player = function (name, id, player) {
+const Player = function(name, id, player) {
   this.icon = null;
   this.name = name;
   this.id = id;
@@ -10,8 +10,8 @@ const Player = function (name, id, player) {
   this.colour = null;
 };
 
-Player.prototype.rollDie = function () {
-  const randomNumber = Math.floor(Math.random() * 6 + 1 );
+Player.prototype.rollDie = function() {
+  const randomNumber = Math.floor(Math.random() * 6 + 1);
   PubSub.publish('Player:rollnumber', randomNumber);
 };
 

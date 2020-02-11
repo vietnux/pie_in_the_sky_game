@@ -1,8 +1,7 @@
 const express = require('express');
 const ObjectID = require('mongodb').ObjectID;
 
-const createRouter = function (collection) {
-
+const createRouter = function(collection) {
   const router = express.Router();
 
   router.get('/', (req, res) => {
@@ -31,35 +30,30 @@ const createRouter = function (collection) {
   });
 
   router.post('/', (req, res) => {
-  const newData = req.body;
-  collection.insertOne(newData)
-  .then( (docs) => res.json(docs) )
-  .catch( (err) => console.error(err) );
-});
+    const newData = req.body;
+    collection
+      .insertOne(newData)
+      .then((docs) => res.json(docs))
+      .catch((err) => console.error(err));
+  });
 
-
-
-
-router.put('/:id', (req, res) => {
-  console.log(req);
-  const id = req.params.id;
-  const updatedData = req.body;
-  collection
-    .updateOne(
-      {_id: ObjectID(id)},
-      {$set: updatedData}
-    )
-    .then(() => {
-      collection
-      .find()
-      .toArray()
-      .then((docs) => res.json(docs));
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(500);
-      res.json({ status: 500, error: err });
-    });
+  router.put('/:id', (req, res) => {
+    console.log(req);
+    const id = req.params.id;
+    const updatedData = req.body;
+    collection
+      .updateOne({ _id: ObjectID(id) }, { $set: updatedData })
+      .then(() => {
+        collection
+          .find()
+          .toArray()
+          .then((docs) => res.json(docs));
+      })
+      .catch((err) => {
+        console.error(err);
+        res.status(500);
+        res.json({ status: 500, error: err });
+      });
   });
 
   router.delete('/:id', (req, res) => {
@@ -80,7 +74,6 @@ router.put('/:id', (req, res) => {
   });
 
   return router;
-
 };
 
 module.exports = createRouter;

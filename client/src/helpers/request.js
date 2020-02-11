@@ -1,35 +1,31 @@
-const Request = function (url) {
+const Request = function(url) {
   this.url = url;
 };
 
-Request.prototype.get = function () {
-  return fetch(this.url)
-  .then((response) => response.json());
+Request.prototype.get = function() {
+  return fetch(this.url).then((response) => response.json());
 };
 
-Request.prototype.post = function (payload) {
+Request.prototype.post = function(payload) {
   return fetch(this.url, {
     method: 'POST',
     body: JSON.stringify(payload),
-    headers: { 'Content-Type': 'application/json' }
-  })
-  .then((response) => response.json());
+    headers: { 'Content-Type': 'application/json' },
+  }).then((response) => response.json());
 };
 
-Request.prototype.put = function (id, payload) {
+Request.prototype.put = function(id, payload) {
   return fetch(`${this.url}/${id}`, {
     method: 'PUT',
     body: JSON.stringify(payload),
-    headers: { 'Content-Type': 'application/json' }
-  })
-  .then((response) => response.json());
+    headers: { 'Content-Type': 'application/json' },
+  }).then((response) => response.json());
 };
 
-Request.prototype.delete = function (id) {
+Request.prototype.delete = function(id) {
   return fetch(`${this.url}/${id}`, {
-    method: 'DELETE'
-  })
-  .then((response) => response.json());
+    method: 'DELETE',
+  }).then((response) => response.json());
 };
 
 module.exports = Request;
